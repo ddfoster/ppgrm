@@ -51,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     do_action( 'woocommerce_review_order_after_cart_contents' );
     ?>
+        <h2>Разом</h2>
         <div class="total-amount cart-subtotal">
             <div><?php _e( 'Subtotal', 'woocommerce' ); ?></div>
             <div><?php wc_cart_totals_subtotal_html(); ?></div>

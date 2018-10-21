@@ -622,18 +622,18 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 }
 
 
-
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'bbloomer_custom_add_cart_button_single_product' );
-function bbloomer_custom_add_cart_button_single_product( $label ) {
-    foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
-        $product = $values['data'];
-        if( get_the_ID() == $product->get_id() ) {
-            $label = __('Додано в кошик', 'woocommerce');
-        }
-    }
-
-    return $label;
-};
+//
+//add_filter( 'woocommerce_product_single_add_to_cart_text', 'bbloomer_custom_add_cart_button_single_product' );
+//function bbloomer_custom_add_cart_button_single_product( $label ) {
+//    foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+//        $product = $values['data'];
+//        if( get_the_ID() == $product->get_id() ) {
+//            $label = __('Додано в кошик', 'woocommerce');
+//        }
+//    }
+//
+//    return $label;
+//};
 
 
 add_action( 'wp_footer', 'cart_update_qty_script' );

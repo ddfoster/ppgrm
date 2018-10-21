@@ -67,6 +67,10 @@
     text-decoration: none;
 }
 
-#billing_country_field{
+/*#billing_country_field{*/
+    /*display: none;*/
+/*}*/
+
+.popularWallets__carousel .product-item .quantity{
     display: none;
 }
