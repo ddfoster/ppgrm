@@ -73,7 +73,7 @@ get_header( 'shop' );
             </div>
         </div>
 
-        <div class="mainPage_small-description">
+        <div class="mainPage_small-description mainPage_small-description-top">
             <div class="info">
                 <h4>Зручний і вмісткий!</h4>
                 <p>Ми робимо Papirgam таким чином, щоб в
@@ -101,7 +101,7 @@ get_header( 'shop' );
             <div class="image-top"></div>
         </div>
 
-        <div class="mainPage_small-description">
+        <div class="mainPage_small-description mainPage_small-description-bottom">
             <div class="image-bottom"></div>
             <div class="info">
                 <h4>Легкий, тонкий та компактний</h4>
@@ -128,6 +128,7 @@ get_header( 'shop' );
             </div>
         </div>
 
+         <h2 class="choose-heading"> Обирай свій новий гаманець! </h2>
 
         <?php do_action( 'woocommerce_archive_description' ); ?>
 
