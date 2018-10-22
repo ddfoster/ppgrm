@@ -35,18 +35,18 @@ $('.slider-nav').slick({
                 slidesToShow: 3,
             }
         },
-        {
-            breakpoint: 4000,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
+        // {
+        //     breakpoint: 4000,
+        //     settings: {
+        //         slidesToShow: 4,
+        //     }
+        // },
     ]
 });
 $('.single-item').slick({
 
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     dots: false,
     responsive: [
         {

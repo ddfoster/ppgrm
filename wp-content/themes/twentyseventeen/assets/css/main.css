@@ -316,6 +316,10 @@ footer .info {
   border: 0;
 }
     .product-item_carousel .single-item_block .image img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 100%;
       height: auto; }
   .product-item_carousel .slick-dots {
@@ -374,6 +378,7 @@ footer .info {
   border: 0;
   outline: 0;
   position: relative;
+  cursor: pointer;
   margin-right: 12px; }
 .product-item .info button:after {
   content: '';
@@ -1444,6 +1449,10 @@ footer .info {
     justify-content: space-between; }
     .paymentDetails form > div:first-of-type {
       width: 50%; }
+@media (max-width: 575px){
+  .paymentDetails form > div:first-of-type {
+    width: 100%; }
+}
   .paymentDetails .calculator {
     padding: 20px 14px;
     box-shadow: 0 1.5px 3px 0 rgba(0, 0, 0, 0.16); }
@@ -1585,6 +1594,7 @@ footer .info {
       margin-bottom: 13px; }
     .paymentDetails .paymentDetails-selects {
       width: 100%;
+      margin: 0 auto;
       max-width: 500px; }
     .paymentDetails-cart {
       width: 100%;
@@ -1599,5 +1609,37 @@ footer .info {
   .paymentDetails {
     padding: 40px 15px; }
     .paymentDetails button {
-      height: 46px;
-      width: 250px; } }
+      } }
+
+.paymentDetails button {
+  display: block;
+  position: relative;
+  border: 0;
+  outline: none;
+  line-height: 50px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  margin: 13px 0;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  background: #026f3e;
+  font: 500 15px 'Roboto';
+  font-family: 'Roboto';
+  height: 46px;
+  width: 250px;
+}
+.wc_payment_methods.payment_methods.methods li label {
+  font-size: 16px;
+  font-weight: 300;
+  color: #545b6c;
+}
+.wc_payment_methods.payment_methods.methods li input {
+
+  opacity: 0;
+  font-size: 0;
+  margin: 0;
+  width: 0;
+
+}
