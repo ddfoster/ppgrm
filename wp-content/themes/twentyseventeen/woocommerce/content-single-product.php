@@ -149,9 +149,10 @@ if ( post_password_required() ) {
 </section>
 
 <section class="popularWallets">
-    <div class="popularWallets__carousel">
+    <h2>Популярні гаманці</h2>
+    <div class="popularWallets__carousel products-container">
         <ul class="products-wrapper">
-        <h2>Популярні гаманці</h2>
+
         <?php
         $args = array(
             'post_type' => 'product',

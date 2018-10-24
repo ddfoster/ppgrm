@@ -40,8 +40,7 @@ get_header( 'shop' );
                 <h1>Гаманці <span>PAPIRGAM</span></h1>
                 <p>Гаманці виготовлені з матеріалу Tyvek. Це міцне, довговічне полотно яке складається на 100 % з поліетилену высокої щільності. Він тонкий, легкий, витривалий і водостійкий.</p>
                 <div class="buttons">
-                    <a href="#" class="buy">Придбати вже!</a>
-                    <a href="#" class="video">Дивитись відео</a>
+                    <a href="#buy-wallet" class="buy">Придбати вже!</a>
                 </div>
             </div>
         </div>
@@ -127,36 +126,40 @@ get_header( 'shop' );
                 </div>
             </div>
         </div>
+         <h2 class="choose-heading buy-wallet" id="buy-wallet"> Обирай свій новий гаманець! </h2>
+        <div class="products-container">
+            <?php do_action( 'woocommerce_archive_description' ); ?>
+            <?php
+            if ( woocommerce_product_loop() ) {
 
-         <h2 class="choose-heading"> Обирай свій новий гаманець! </h2>
+                woocommerce_product_loop_start();
 
-        <?php do_action( 'woocommerce_archive_description' ); ?>
+                if ( wc_get_loop_prop( 'total' ) ) {
+                    while ( have_posts() ) {
+                        the_post();
 
-        <?php
-        if ( woocommerce_product_loop() ) {
+                        do_action( 'woocommerce_shop_loop' );
 
-            woocommerce_product_loop_start();
-
-            if ( wc_get_loop_prop( 'total' ) ) {
-                while ( have_posts() ) {
-                    the_post();
-
-                    do_action( 'woocommerce_shop_loop' );
-
-                    wc_get_template_part( 'content', 'product' );
+                        wc_get_template_part( 'content', 'product' );
+                    }
                 }
+
+                woocommerce_product_loop_end();
+
+                do_action( 'woocommerce_after_shop_loop' );
+            } else {
+
+                do_action( 'woocommerce_no_products_found' );
             }
 
-            woocommerce_product_loop_end();
 
-            do_action( 'woocommerce_after_shop_loop' );
-        } else {
-
-            do_action( 'woocommerce_no_products_found' );
-        }
+             do_action( 'woocommerce_sidebar' ); ?>
 
 
-        do_action( 'woocommerce_sidebar' ); ?>
+             <div class="load-more">
+                <a href="#">Завантажити більше гаманців</a>
+            </div>
+        </div>
 
         <div class="reviews">
             <h2>Цим рєбяткам полюбились гаманці Papirgam</h2>

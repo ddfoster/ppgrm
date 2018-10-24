@@ -6,12 +6,12 @@
     position: relative;
 }
 
-.mainPage .single-item_block a img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+/*.mainPage .single-item_block a img{*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+/*}*/
 
 .woocommerce-Price-currencySymbol{
     display: none;
