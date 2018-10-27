@@ -147,12 +147,11 @@ if ( post_password_required() ) {
     //do_action( 'woocommerce_after_single_product_summary' );
     ?>
 </section>
-
+</div>
 <section class="popularWallets">
     <h2>Популярні гаманці</h2>
     <div class="popularWallets__carousel products-container">
         <ul class="products-wrapper">
-
         <?php
         $args = array(
             'post_type' => 'product',

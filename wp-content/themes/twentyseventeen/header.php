@@ -30,7 +30,7 @@
             <a href="tel:0677632900">+38 (067) 763 29 00</a>
         </div>
         <div class="header-bottom">
-            <a href="index.html"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
+            <a href="/"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
             <div class="links">
                 <a href="/">Головна</a>
                 <a href="<?php echo wc_get_cart_url(); ?>">Кошик <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span></a>

@@ -19,6 +19,9 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+$field = get_field_object('changer');
+$value = $field['value'];
+
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
     return;
@@ -26,7 +29,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 
 <?php //wc_product_class(); ?>
-<li class="product-item">
+<li class="product-item <?php echo $value ?>">
+
+
     <?php
     /**
      * Hook: woocommerce_before_shop_loop_item.

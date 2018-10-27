@@ -635,6 +635,14 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 //    return $label;
 //};
 
+add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
+
+function add_my_currency_symbol( $currency_symbol, $currency ) {
+    switch( $currency ) {
+        case 'UAH': $currency_symbol = 'грн'; break;
+    }
+    return $currency_symbol;
+}
 
 add_action( 'wp_footer', 'cart_update_qty_script' );
 function cart_update_qty_script() {
@@ -655,3 +663,19 @@ function remove_woocommerce_actions() {
 }
 
 add_action( 'woocommerce_checkout_order_review_2', 'woocommerce_checkout_payment', 20 );
+
+
+
+function woo_in_cart($product_id) {
+    global $woocommerce;
+
+    foreach($woocommerce->cart->get_cart() as $key => $val ) {
+        $_product = $val['data'];
+
+        if($product_id == $_product->id ) {
+            return true;
+        }
+    }
+
+    return false;
+}

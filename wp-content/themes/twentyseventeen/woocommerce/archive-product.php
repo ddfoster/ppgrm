@@ -126,9 +126,12 @@ get_header( 'shop' );
                 </div>
             </div>
         </div>
-         <h2 class="choose-heading buy-wallet" id="buy-wallet"> Обирай свій новий гаманець! </h2>
+
+        <h2 class="choose-heading buy-wallet" id="buy-wallet"> Обирай свій новий гаманець! </h2>
+
         <div class="products-container">
             <?php do_action( 'woocommerce_archive_description' ); ?>
+
             <?php
             if ( woocommerce_product_loop() ) {
 
@@ -153,12 +156,7 @@ get_header( 'shop' );
             }
 
 
-             do_action( 'woocommerce_sidebar' ); ?>
-
-
-             <div class="load-more">
-                <a href="#">Завантажити більше гаманців</a>
-            </div>
+            do_action( 'woocommerce_sidebar' ); ?>
         </div>
 
         <div class="reviews">
