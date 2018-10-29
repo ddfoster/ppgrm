@@ -62,11 +62,18 @@ if ( post_password_required() ) {
             <div>
                 <div class="name"><?php the_title(); ?></div>
                 <div class="price"><?php echo $product->get_price_html(); ?></div>
-                <div class="availability">In Stock</div>
+                <div class="availability">
+                    <?php if( $product->get_stock_quantity()):
+                        echo "In Stock";
+                    else:
+                        echo "Out of stock";
+                    endif;
+                    ?>
+                </div>
             </div>
             <div>
-                <p>Доставка:<span>Нова Пошта</span></p>
-                <p>Оплата:<span>Приват Банк</span></p>
+                <p>Доставка: <span><?php the_field('delivery'); ?></span></p>
+                <p>Оплата: <span><?php the_field('payment'); ?></span></p>
             </div>
         </div>
         <div class="productPage__info-button">
@@ -75,16 +82,19 @@ if ( post_password_required() ) {
     </div>
 
     <div class="productPage__details">
-        <img src="<?php bloginfo('template_url')?>/assets/img/wallet-sizes.png" alt="">
-        <h2>Особливості</h2>
+        <?php if(get_field('product_info')): ?>
+            <?php while(has_sub_field('product_info')): ?>
 
-        <div class="description">
-            <?php echo $short_description; ?>
-<!--            <p><span>Вмісткий</span> — поміщає 20 купюр різних країн, 16 пластикових карток і 12 візиток.</p>-->
-<!--            <p><span>Надміцний</span> — матеріал Tyvek витривалий до зносу. Слугує так само довго як і шкіряний гаманець.</p>-->
-<!--            <p><span>Водостійкий</span> — матеріал Tyvek не пропускає вологу, не розмокає і не портиться від води. Можна прати в пральній машині, якщо гаманець забруднився. </p>-->
-        </div>
+                <img src="<?php the_sub_field('wallet_scheme_image');?>" alt="">
+                <h2><?php the_sub_field('property_title');?></h2>
 
+                <div class="description">
+                    <?php while(has_sub_field('property_items')): ?>
+                        <p><span><?php the_sub_field('title');?></span> — <?php the_sub_field('description');?></p>
+                    <?php endwhile; ?>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
 
     <?php

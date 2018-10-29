@@ -32,16 +32,21 @@ get_header( 'shop' );
 
 
 <div class="mainPage">
-
     <div class="mainPage_product-description">
         <div class="mainPage_product-description-welcome"></div>
         <div class="mainPage_product-description-about">
             <div class="container">
-                <h1>Гаманці <span>PAPIRGAM</span></h1>
-                <p>Гаманці виготовлені з матеріалу Tyvek. Це міцне, довговічне полотно яке складається на 100 % з поліетилену высокої щільності. Він тонкий, легкий, витривалий і водостійкий.</p>
-                <div class="buttons">
-                    <a href="#buy-wallet" class="buy">Придбати вже!</a>
-                </div>
+                <?php if(get_field('shop_header')): ?>
+                    <?php while(the_repeater_field('shop_header')): ?>
+
+                        <h1><?php the_sub_field('title');?></h1>
+                        <p><?php the_sub_field('description');?></p>
+                        <div class="buttons">
+                            <a href="#buy-wallet" class="buy"><?php the_sub_field('buy_button');?></a>
+                        </div>
+
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -127,10 +132,10 @@ get_header( 'shop' );
             </div>
         </div>
 
-        <h2 class="choose-heading buy-wallet" id="buy-wallet"> Обирай свій новий гаманець! </h2>
+        <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title')?> </h2>
 
         <div class="products-container">
-            <?php do_action( 'woocommerce_archive_description' ); ?>
+<!--            --><?php //do_action( 'woocommerce_archive_description' ); ?>
 
             <?php
             if ( woocommerce_product_loop() ) {
@@ -140,23 +145,18 @@ get_header( 'shop' );
                 if ( wc_get_loop_prop( 'total' ) ) {
                     while ( have_posts() ) {
                         the_post();
-
                         do_action( 'woocommerce_shop_loop' );
-
                         wc_get_template_part( 'content', 'product' );
                     }
                 }
-
                 woocommerce_product_loop_end();
-
                 do_action( 'woocommerce_after_shop_loop' );
             } else {
-
                 do_action( 'woocommerce_no_products_found' );
             }
 
-
-            do_action( 'woocommerce_sidebar' ); ?>
+            ?>
+<!--            <?php //do_action( 'woocommerce_sidebar' ); ?>-->
         </div>
 
         <div class="reviews">

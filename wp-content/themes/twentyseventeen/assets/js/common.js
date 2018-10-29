@@ -122,3 +122,6 @@ $('.product-item_carousel').slick({
     dots: true
 });
 
+$(document).ready(function() {
+    $('#billing_country').val('UA');
+});
