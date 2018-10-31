@@ -125,3 +125,9 @@ $('.product-item_carousel').slick({
 $(document).ready(function() {
     $('#billing_country').val('UA');
 });
+
+
+$(document).ready(function() {
+    $( "<div class='new'>NEW!</div>" ).appendTo( $( ".new .product-item_carousel" ) );
+    $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
+});
