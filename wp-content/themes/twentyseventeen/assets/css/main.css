@@ -82,19 +82,24 @@ div.container {
   font-size: 18px;
   color: #545b6c;
   font-weight: 500;
+  margin-top: 50px;
+  text-align: center;
 }
 .return-to-shop .wc-backward {
-  display: inline-block;
+  display: block;
   color: #ffffff;
   background: #026f3e;
   text-align: center;
   text-decoration: none;
-  min-width: 240px;
-  margin-top: 8px;
+  width: 240px;
+  margin-top: 60px;
   font-weight: 500;
   height: 51px;
   line-height: 51px;
   border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30vh;
 }
 .header-top {
   height: 50px;
@@ -1010,9 +1015,9 @@ flex-direction: row; }
   color: #545b6c;
   width: 100%; }
 
-@media (max-width: 1919px) {
-  .popularWallets .products-wrapper .product-item:nth-of-type(5) {
-    display: none; } }
+/*@media (max-width: 1919px) {*/
+  /*.popularWallets .products-wrapper .product-item:nth-of-type(5) {*/
+    /*display: none; } }*/
 
 @media (max-width: 1240px) {
   .popularWallets .products-wrapper {
@@ -1915,5 +1920,24 @@ flex-direction: row; }
   .products-container .products-wrapper {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+#yith-wacp-popup.open .yith-wacp-wrapper {
+  width: 300px!important;
+  height: 394px!important;
+  left: 50%!important;
+  top: 50%!important;
+  transform: translate(-50%, -50%);
+
+}
+@media (min-width: 576px) {
+  #yith-wacp-popup.open .yith-wacp-wrapper {
+    width: 375px!important;
+  }
+}
+@media (min-width: 1200px) {
+  #yith-wacp-popup.open .yith-wacp-wrapper {
+    width: 500px!important;
+    height: 394px!important;
   }
 }
