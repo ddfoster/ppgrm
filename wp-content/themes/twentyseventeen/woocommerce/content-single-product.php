@@ -167,7 +167,7 @@ if ( post_password_required() ) {
             'post_type' => 'product',
             'meta_key' => 'total_sales',
             'orderby' => 'meta_value_num',
-            'posts_per_page' => 4,
+            'posts_per_page' => 5,
         );
         $loop = new WP_Query( $args );
         while ( $loop->have_posts() ) : $loop->the_post();
