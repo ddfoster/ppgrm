@@ -128,6 +128,6 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $( "<div class='new'>NEW!</div>" ).appendTo( $( ".new .product-item_carousel" ) );
+    $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );
     $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
 });
