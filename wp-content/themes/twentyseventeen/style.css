@@ -13,15 +13,10 @@
     /*transform: translate(-50%, -50%);*/
 /*}*/
 
-.woocommerce-Price-currencySymbol{
-    display: none;
-}
+/*.woocommerce-Price-currencySymbol{*/
+    /*display: none;*/
+/*}*/
 
-.price:after{
-    content: 'грн';
-    display: inline-block;
-    margin-left: 3px;
-}
 
 .popup-wrapper {
     position: absolute;
@@ -80,5 +75,13 @@
 }
 
 #billing_country_field{
+    display: none;
+}
+
+.wc_payment_methods.payment_methods.methods{
+    display: none;
+}
+
+.product-item .info > div .stock{
     display: none;
 }

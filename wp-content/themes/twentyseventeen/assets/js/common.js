@@ -126,6 +126,12 @@ $(document).ready(function() {
     $('#billing_country').val('UA');
 });
 
+$('.single_add_to_cart_button').click(function () {
+    setTimeout(function () {
+        $('.single_add_to_cart_button').text("Додано в кошик")
+    }, 2000);
+});
+
 
 $(document).ready(function() {
     $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );

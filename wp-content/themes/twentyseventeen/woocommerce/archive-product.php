@@ -30,15 +30,16 @@ get_header( 'shop' );
 
 ?>
 
-
 <div class="mainPage">
     <div class="mainPage_product-description">
         <div class="mainPage_product-description-welcome"></div>
         <div class="mainPage_product-description-about">
             <div class="container">
-                <?php if(get_field('shop_header')): ?>
-                    <?php while(the_repeater_field('shop_header')): ?>
 
+                <?php if(get_field('shop_header', 5)): ?>
+
+
+                    <?php while(the_repeater_field('shop_header', 5)): ?>
                         <h1><?php the_sub_field('title');?></h1>
                         <p><?php the_sub_field('description');?></p>
                         <div class="buttons">
@@ -54,26 +55,17 @@ get_header( 'shop' );
     <div class="container">
         <div class="mainPage_carousel-description">
             <div class="single-item">
-                <div class="single-item_block">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/dovgolitniy.png" alt="">
-                    <h3>Довготривалий</h3>
-                    <p>Tyvek складається на 100 % з поліетилену высокої щільності. Тому Papirgam служить тобі так само довгj як і шкіряний гаманець.</p>
-                </div>
-                <div class="single-item_block">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/dovgolitniy.png" alt="">
-                    <h3>Довготривалий</h3>
-                    <p>Tyvek складається на 100 % з поліетилену высокої щільності. Тому Papirgam служить тобі так само довго як і шкіряний гаманець.</p>
-                </div>
-                <div class="single-item_block">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/dovgolitniy.png" alt="">
-                    <h3>Довготривалий</h3>
-                    <p>Tyvek складається на 100 % з поліетилену высокої щільності. Тому Papirgam служить тобі так само довгj як і шкіряний гаманець.</p>
-                </div>
-                <div class="single-item_block">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/dovgolitniy.png" alt="">
-                    <h3>Довготривалий</h3>
-                    <p>Tyvek складається на 100 % з поліетилену высокої щільності. Тому Papirgam служить тобі так само довгj як і шкіряний гаманець.</p>
-                </div>
+                <?php if(get_field('products_properties', 5)): ?>
+                    <?php while(the_repeater_field('products_properties', 5)): ?>
+
+                        <div class="single-item_block">
+                            <img src="<?php the_sub_field('image');?>" alt="">
+                            <h3><?php the_sub_field('title');?></h3>
+                            <p><?php the_sub_field('description');?></p>
+                        </div>
+
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -132,10 +124,9 @@ get_header( 'shop' );
             </div>
         </div>
 
-        <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title')?> </h2>
+        <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title', 5); ?> </h2>
 
         <div class="products-container">
-<!--            --><?php //do_action( 'woocommerce_archive_description' ); ?>
 
             <?php
             if ( woocommerce_product_loop() ) {
@@ -155,39 +146,31 @@ get_header( 'shop' );
                 do_action( 'woocommerce_no_products_found' );
             }
 
+            do_action( 'woocommerce_sidebar' );
+
             ?>
-<!--            <?php //do_action( 'woocommerce_sidebar' ); ?>-->
         </div>
 
         <div class="reviews">
-            <h2>Цим рєбяткам полюбились гаманці Papirgam</h2>
-            <div class="reviews-block">
-                <div class="image">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/404wallet.png" alt="">
-                </div>
-                <div class="comment">
-                    <p>Когда я купила свой первый кастомный бумажный кошелёк Papirgam, моему счастью не было предела. Экологичный и компактный, уникальнейший дизайн, два удобных отделения для купюр и еще внутренние два отделения для кредиток. 5 лет носки, а состояние практически не изменилось. Спасибо Papirgam за супер крутой продукт !</p>
-                    <h5>Даша. Продюсер. Київ</h5>
-                </div>
-            </div>
-            <div class="reviews-block">
-                <div class="image">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/111111111.PNG" alt="">
-                </div>
-                <div class="comment">
-                    <p>Когда я купила свой первый кастомный бумажный кошелёк Papirgam, моему счастью не было предела. Экологичный и компактный, уникальнейший дизайн, два удобных отделения для купюр и еще внутренние два отделения для кредиток. 5 лет носки, а состояние практически не изменилось. Спасибо Papirgam за супер крутой продукт !</p>
-                    <h5>Даша. Продюсер. Київ</h5>
-                </div>
-            </div>
-            <div class="reviews-block">
-                <div class="image">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
-                </div>
-                <div class="comment">
-                    <p>Когда я купила свой первый кастомный бумажный кошелёк Papirgam, моему счастью не было предела. Экологичный и компактный, уникальнейший дизайн, два удобных отделения для купюр и еще внутренние два отделения для кредиток. 5 лет носки, а состояние практически не изменилось. Спасибо Papirgam за супер крутой продукт !</p>
-                    <h5>Даша. Продюсер. Київ</h5>
-                </div>
-            </div>
+
+            <?php if(get_field('reviews', 5)): ?>
+                <?php while(has_sub_field('reviews', 5)): ?>
+                    <h2><?php the_sub_field('title');?></h2>
+                    <?php while(has_sub_field('review_item')): ?>
+                        <div class="reviews-block">
+                            <div class="image">
+                                <img src="<?php the_sub_field('image');?>" alt="">
+                            </div>
+                            <div class="comment">
+                                <p><?php the_sub_field('review_text');?></p>
+                                <h5><?php the_sub_field('reviewer_info');?></h5>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+
         </div>
     </div>
 

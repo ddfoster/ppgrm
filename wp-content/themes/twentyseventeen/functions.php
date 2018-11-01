@@ -713,3 +713,43 @@ function remove_product_editor() {
     remove_post_type_support( 'product', 'editor' );
 }
 add_action( 'init', 'remove_product_editor' );
+
+
+
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');
+function woo_custom_cart_button_text() {
+
+    foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+        $_product = $values['data'];
+
+        if( get_the_ID() == $_product->id ) {
+            return __('Додано в кошик', 'woocommerce');
+        }
+    }
+
+    return __('Add to cart', 'woocommerce');
+}
+
+
+
+function is_in_cart( $ids ) {
+    // Initialise
+    $found = false;
+
+    // Loop Through cart items
+    foreach( WC()->cart->get_cart() as $cart_item ) {
+        // For an array of product IDS
+        if( is_array($ids) && ( in_array( $cart_item['product_id'], $ids ) || in_array( $cart_item['variation_id'], $ids ) ) ){
+            $found = true;
+            break;
+        }
+        // For a unique product ID (integer or string value)
+        elseif( ! is_array($ids) && ( $ids == $cart_item['product_id'] || $ids == $cart_item['variation_id'] ) ){
+            $found = true;
+            break;
+        }
+    }
+
+    return $found;
+}
