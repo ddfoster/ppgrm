@@ -416,6 +416,7 @@ function twentyseventeen_scripts() {
 
 
     wp_enqueue_style( 'app.min', get_theme_file_uri( '/assets/css/app.min.css' ));
+    wp_enqueue_style( 'reset', get_theme_file_uri( '/assets/css/reset.css' ));
     wp_enqueue_style( 'main', get_theme_file_uri( '/assets/css/main.css' ));
     wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );
     wp_enqueue_script( 'libs', get_theme_file_uri( '/assets/js/libs.min.js' ), array( 'jquery' ), '1.0', true );
