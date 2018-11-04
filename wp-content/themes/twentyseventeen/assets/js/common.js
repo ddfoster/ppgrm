@@ -132,38 +132,15 @@ $(document).ready(function() {
 });
 
 
-(function(){
-    // Your base, I'm in it!
-    var originalAddClassMethod = jQuery.fn.addClass;
-
-    jQuery.fn.addClass = function(){
-        // Execute the original method.
-        var result = originalAddClassMethod.apply( this, arguments );
-
-        // trigger a custom event
-        jQuery(this).trigger('cssClassChanged');
-
-        // return the original result
-        return result;
-    }
-})();
-
-// document ready function
-$(document).ready(function() {
-    $(function(){
-        $(".single_add_to_cart_button").bind('cssClassChanged', function(){
-            alert('class change')
-        });
-    });
-});
-
- $(document).ready(function(){
+$(document).ready(function(){
     $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
- });
-
+});
 
 if ($(window).width() < 576) {
     $(document).ready(function () {
+        $('.product-item').css('display', 'none');
+        $('.products-container').append("<button id='loadMore'>123</button>");
+
         $(".product-item").slice(0, 2).show();
 
         $("#loadMore").on('click', function (e) {
@@ -179,6 +156,7 @@ if ($(window).width() < 576) {
     });
 }
 
+
 $(document).on('click',function() {
     var myLink = $('.add_to_cart_button');
     if (myLink.hasClass('loading')) {
@@ -188,6 +166,3 @@ $(document).on('click',function() {
         $('.add_to_cart_button').closest('li.product-item').removeClass('loading');
     }
 });
-
-
-

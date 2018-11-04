@@ -6,18 +6,6 @@
     position: relative;
 }
 
-/*.mainPage .single-item_block a img{*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-/*}*/
-
-/*.woocommerce-Price-currencySymbol{*/
-    /*display: none;*/
-/*}*/
-
-
 .popup-wrapper {
     position: absolute;
     top: 50%;
@@ -54,11 +42,6 @@
 .cartPage-wrapper .actions{
     display: none;
 }
-
-
-/*#billing_country_field{*/
-    /*display: none;*/
-/*}*/
 
 .popularWallets__carousel .product-item .quantity{
     display: none;

@@ -310,38 +310,38 @@ add_filter( 'wp_resource_hints', 'twentyseventeen_resource_hints', 10, 2 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function twentyseventeen_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Blog Sidebar', 'twentyseventeen' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'twentyseventeen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'twentyseventeen' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'twentyseventeen' ),
-		'id'            => 'sidebar-3',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'twentyseventeen_widgets_init' );
+//function twentyseventeen_widgets_init() {
+//	register_sidebar( array(
+//		'name'          => __( 'Blog Sidebar', 'twentyseventeen' ),
+//		'id'            => 'sidebar-1',
+//		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'twentyseventeen' ),
+//		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//		'after_widget'  => '</section>',
+//		'before_title'  => '<h2 class="widget-title">',
+//		'after_title'   => '</h2>',
+//	) );
+//
+//	register_sidebar( array(
+//		'name'          => __( 'Footer 1', 'twentyseventeen' ),
+//		'id'            => 'sidebar-2',
+//		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+//		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//		'after_widget'  => '</section>',
+//		'before_title'  => '<h2 class="widget-title">',
+//		'after_title'   => '</h2>',
+//	) );
+//
+//	register_sidebar( array(
+//		'name'          => __( 'Footer 2', 'twentyseventeen' ),
+//		'id'            => 'sidebar-3',
+//		'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+//		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//		'after_widget'  => '</section>',
+//		'before_title'  => '<h2 class="widget-title">',
+//		'after_title'   => '</h2>',
+//	) );
+//}
+//add_action( 'widgets_init', 'twentyseventeen_widgets_init' );
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
@@ -416,6 +416,7 @@ function twentyseventeen_scripts() {
 
 
     wp_enqueue_style( 'app.min', get_theme_file_uri( '/assets/css/app.min.css' ));
+    wp_enqueue_style( 'reset', get_theme_file_uri( '/assets/css/reset.css' ));
     wp_enqueue_style( 'main', get_theme_file_uri( '/assets/css/main.css' ));
     wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );
     wp_enqueue_script( 'libs', get_theme_file_uri( '/assets/js/libs.min.js' ), array( 'jquery' ), '1.0', true );
@@ -688,9 +689,26 @@ function woo_custom_cart_button_text() {
             return __('Додано в кошик', 'woocommerce');
         }
     }
-
     return __('Add to cart', 'woocommerce');
 }
+
+add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
+function single_add_to_cart_event_text_replacement() {
+    global $product;
+
+    if( ! is_product() ) return; // Only single product pages
+    if( $product->is_type('variable') ) return; // Not variable products
+    ?>
+    <script type="text/javascript">
+        (function($){
+            $('button.single_add_to_cart_button').click( function(){
+                $(this).text('<?php _e( "Додано в кошик", "woocommerce" ); ?>');
+            });
+        })(jQuery);
+    </script>
+    <?php
+}
+
 
 
 //check if in cart product
@@ -739,20 +757,28 @@ add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
 
-
-add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
-function single_add_to_cart_event_text_replacement() {
-    global $product;
-
-    if( ! is_product() ) return; // Only single product pages
-    if( $product->is_type('variable') ) return; // Not variable products
-    ?>
-    <script type="text/javascript">
-        (function($){
-            $('button.single_add_to_cart_button').click( function(){
-                $(this).text('<?php _e( "Додано в кошик", "woocommerce" ); ?>');
-            });
-        })(jQuery);
-    </script>
-    <?php
+//menu
+function register_custom_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'TopMenu' ),
+        )
+    );
 }
+add_action( 'init', 'register_custom_menus' );
+
+
+// widgets
+register_sidebar( array(
+    'name' => __( 'Header Info'),
+    'id' => 'header-widget',
+    'before_widget' => '<div class="header-top">',
+    'after_widget' => '</div>',
+));
+
+register_sidebar( array(
+    'name' => __( 'Footer info'),
+    'id' => 'footer-widget',
+    'before_widget' => '',
+    'after_widget' => '',
+));

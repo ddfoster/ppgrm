@@ -30,30 +30,18 @@ get_header( 'shop' );
 
 ?>
 
-<style>
-    @media(max-width: 576px){
-        .product-item{
-            display: none;
-        }
-    }
-</style>
-
 <div class="mainPage">
     <div class="mainPage_product-description">
         <div class="mainPage_product-description-welcome"></div>
         <div class="mainPage_product-description-about">
             <div class="container">
-
                 <?php if(get_field('shop_header', 5)): ?>
-
-
                     <?php while(the_repeater_field('shop_header', 5)): ?>
                         <h1><?php the_sub_field('title');?></h1>
                         <p><?php the_sub_field('description');?></p>
                         <div class="buttons">
                             <a href="#buy-wallet" class="buy"><?php the_sub_field('buy_button');?></a>
                         </div>
-
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
@@ -65,13 +53,11 @@ get_header( 'shop' );
             <div class="single-item">
                 <?php if(get_field('products_properties', 5)): ?>
                     <?php while(the_repeater_field('products_properties', 5)): ?>
-
                         <div class="single-item_block">
                             <img src="<?php the_sub_field('image');?>" alt="">
                             <h3><?php the_sub_field('title');?></h3>
                             <p><?php the_sub_field('description');?></p>
                         </div>
-
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
@@ -79,28 +65,21 @@ get_header( 'shop' );
 
         <div class="mainPage_small-description mainPage_small-description-top">
             <div class="info">
-                <h4>Зручний і вмісткий!</h4>
-                <p>Ми робимо Papirgam таким чином, щоб в
-                    нього з легкістю поміщались купюры будь-яких країн світу. Ми хочемо, щоб тобі було зручно в подорожах.  Окрім двох відділень для грошей та чеків, гаманець має дві вмістких секціх для візиток та пластикових карт.</p>
-                <img src="<?php bloginfo("template_url")?>/assets/img/111111111.PNG" alt="">
-                <div class="block">
-                    <div class="block-item">
-                        <span>16 карток</span>
-                        <img src="<?php bloginfo("template_url")?>/assets/img/16cards.png" alt="">
-                    </div>
-                    <div class="block-item">
-                        <span>12 візиток</span>
-                        <img src="<?php bloginfo("template_url")?>/assets/img/16cards.png" alt="">
-                    </div>
-                    <div class="block-item">
-                        <span>20 купюр</span>
-                        <img src="<?php bloginfo("template_url")?>/assets/img/16cards.png" alt="">
-                    </div>
-                    <div class="block-item">
-                        <span>Чеки</span>
-                        <img src="<?php bloginfo("template_url")?>/assets/img/16cards.png" alt="">
-                    </div>
-                </div>
+                <?php if(get_field('about_1', 5)): ?>
+                    <?php while(the_repeater_field('about_1', 5)): ?>
+                        <h4><?php the_sub_field('title');?></h4>
+                        <p><?php the_sub_field('description');?></p>
+                        <img src="<?php the_sub_field('background_image');?>" alt="">
+                        <div class="block">
+                            <?php while(the_repeater_field('about_properties', 5)): ?>
+                                <div class="block-item">
+                                    <span> <?php the_sub_field('title');?></span>
+                                    <img src=" <?php the_sub_field('image');?>" alt="">
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
             <div class="image-top"></div>
         </div>
@@ -108,61 +87,47 @@ get_header( 'shop' );
         <div class="mainPage_small-description mainPage_small-description-bottom">
             <div class="image-bottom"></div>
             <div class="info">
-                <h4>Легкий, тонкий та компактний</h4>
-                <p>Завдяки унікальному матеріалу та дизайну Papirgam - це дуже легкий компактний та тонкий гаманець, який  зручно носити в кишені. І він точно не додає зайвої ваги до твоєї сумки.</p>
-                <div class="block">
-                    <div class="block-item big">
-                        <h5>Довжина</h5>
-                        <span>10.5 см</span>
-                    </div>
-                    <div class="block-item big">
-                        <h5>Висота</h5>
-                        <span>8 см</span>
-                    </div>
-                    <div class="block-item big">
-                        <h5>Ширина</h5>
-                        <span>5 мм</span>
-                    </div>
-                    <div class="block-item big">
-                        <h5>Вага</h5>
-                        <span>15 гр</span>
-                    </div>
-                    <img src="<?php bloginfo("template_url")?>/assets/img/2222222222.PNG" alt="">
-                </div>
+                <?php if(get_field('about_2', 5)): ?>
+                    <?php while(the_repeater_field('about_2', 5)): ?>
+                        <h4><?php the_sub_field('title');?></h4>
+                        <p><?php the_sub_field('description');?></p>
+                        <div class="block">
+                            <?php while(the_repeater_field('about_properties', 5)): ?>
+                                <div class="block-item big">
+                                    <h5><?php the_sub_field('title');?></h5>
+                                    <span><?php the_sub_field('value');?></span>
+                                </div>
+                            <?php endwhile; ?>
+                            <img src="<?php the_sub_field('background_image');?>" />
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
 
         <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title', 5); ?> </h2>
 
         <div class="products-container">
-
             <?php
-            if ( woocommerce_product_loop() ) {
-
-                woocommerce_product_loop_start();
-
-                if ( wc_get_loop_prop( 'total' ) ) {
-                    while ( have_posts() ) {
-                        the_post();
-                        do_action( 'woocommerce_shop_loop' );
-                        wc_get_template_part( 'content', 'product' );
+                if ( woocommerce_product_loop() ) {
+                    woocommerce_product_loop_start();
+                    if ( wc_get_loop_prop( 'total' ) ) {
+                        while ( have_posts() ) {
+                            the_post();
+                            do_action( 'woocommerce_shop_loop' );
+                            wc_get_template_part( 'content', 'product' );
+                        }
                     }
+                    woocommerce_product_loop_end();
+                    do_action( 'woocommerce_after_shop_loop' );
+                } else {
+                    do_action( 'woocommerce_no_products_found' );
                 }
-                woocommerce_product_loop_end();
-                do_action( 'woocommerce_after_shop_loop' );
-            } else {
-                do_action( 'woocommerce_no_products_found' );
-            }
-
-            do_action( 'woocommerce_sidebar' );
-
+                do_action( 'woocommerce_sidebar' );
             ?>
-
-            <button id="loadMore">123</button>
         </div>
 
         <div class="reviews">
-
             <?php if(get_field('reviews', 5)): ?>
                 <?php while(has_sub_field('reviews', 5)): ?>
                     <h2><?php the_sub_field('title');?></h2>
@@ -179,8 +144,6 @@ get_header( 'shop' );
                     <?php endwhile; ?>
                 <?php endwhile; ?>
             <?php endif; ?>
-
-
         </div>
     </div>
 
@@ -193,15 +156,9 @@ get_header( 'shop' );
             </form>
         </div>
     </div>
+
 </div>
 
 
 <?php get_footer( 'shop' ); ?>
-
-<!--<header class="woocommerce-products-header">-->
-<!--	--><?php //if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-<!--		<h1 class="woocommerce-products-header__title page-title">--><?php //woocommerce_page_title(); ?><!--</h1>-->
-<!--	--><?php //endif; ?>
-
-<!--	-->
 

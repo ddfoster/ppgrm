@@ -15,6 +15,9 @@
 ?>
 <footer>
     <div class="social">
+
+        <?php dynamic_sidebar('footer-social'); ?>
+
         <h2>Ми в соціальних мережах</h2>
         <div class="links">
             <a href="#"><img src="<?php bloginfo("template_url")?>/assets/img/facebook.png" alt=""></a>
@@ -24,13 +27,28 @@
     </div>
     <div class="info">
         <div class="left">
-            <h5>Загальні запити<span>info@papirgam.com</span></h5>
-            <h5>Відділ продажу<span>sales@papirgam.com</span></h5>
-            <h5>Співпраця<span>colab@papirgam.com</span></h5>
+            <?php dynamic_sidebar('footer-widget'); ?>
+<!--            <h5>Загальні запити<span>info@papirgam.com</span></h5>-->
+<!--            <h5>Відділ продажу<span>sales@papirgam.com</span></h5>-->
+<!--            <h5>Співпраця<span>colab@papirgam.com</span></h5>-->
         </div>
         <div class="right">
-            <a href="#">Головна</a>
-            <a href="#">Гаманці</a>
+
+            <?php
+            wp_nav_menu([
+                'menu'            => 'TopMenu',
+                'theme_location'  => 'header-menu',
+                'container'       => 'div',
+                'container_class' => 'links',
+//                'menu_id'         => false,
+//                'menu_class'      => 'navbar-nav',
+//                'fallback_cb'     => 'bs4navwalker::fallback',
+//                'walker'          => new bs4navwalker()
+            ]);
+            ?>
+
+<!--            <a href="#">Головна</a>-->
+<!--            <a href="#">Гаманці</a>-->
             <a class="logo" href="index.html">
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>

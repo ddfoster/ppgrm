@@ -25,16 +25,29 @@
 <body <?php body_class(); ?>>
 
     <header class="header">
-        <div class="header-top">
-            <a href="mailto:info@papirgam.com">info@papirgam.com</a>
-            <a href="tel:0677632900">+38 (067) 763 29 00</a>
-        </div>
+        <?php dynamic_sidebar('header-widget'); ?>
         <div class="header-bottom">
             <a href="/"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
-            <div class="links">
-                <a href="/">Головна</a>
-                <a href="<?php echo wc_get_cart_url(); ?>">Кошик <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span></a>
-            </div>
+
+
+            <?php
+            wp_nav_menu([
+                'menu'            => 'TopMenu',
+                'theme_location'  => 'header-menu',
+                'container'       => 'div',
+                'container_class' => 'links',
+//                'menu_id'         => false,
+//                'menu_class'      => 'navbar-nav',
+//                'fallback_cb'     => 'bs4navwalker::fallback',
+//                'walker'          => new bs4navwalker()
+            ]);
+            ?>
+
+<!--            <div class="links">-->
+<!--                <a href="/">Головна</a>-->
+                <a href="<?php echo wc_get_cart_url(); ?>">Кошик
+                    <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span></a>
+<!--            </div>-->
         </div>
     </header>
 
