@@ -14,13 +14,13 @@ body {
   font-family: 'Roboto', sans-serif; }
 @media (min-width: 1024px) {
   body {
-    padding-top: 150px;
+    padding-top: 124px;
   }
 }
 
 @media (min-width: 1920px) {
   body {
-    padding-top: 250px;
+    padding-top: 210px;
   }
 }
 .products-container .slick-initialized .slick-slide {
@@ -910,16 +910,16 @@ footer .info {
 .mainPage .mainPage_small-description .image-top, .mainPage .mainPage_small-description .image-bottom {
   display: none; }
 
-.mainPage .reviews h2 {
+.reviews h2 {
   width: 100%;
   font-size: 22px;
   font-weight: 500;
   color: #656263;
   text-align: center; }
-.mainPage .reviews .reviews-block {
+.reviews .reviews-block {
   display: flex;
   flex-direction: row; }
-.mainPage .reviews .reviews-block .image {
+.reviews .reviews-block .image {
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -931,16 +931,16 @@ footer .info {
   margin-right: 20px;
   box-shadow: 4px 3px 3px -1px rgba(0, 0, 0, 0.29);
 }
-.mainPage .reviews .reviews-block .image img {
+.reviews .reviews-block .image img {
   width: 100%;
   height: auto; }
-.mainPage .reviews .reviews-block .comment p {
+.reviews .reviews-block .comment p {
   font-size: 11px;
   line-height: 1.27;
   font-weight: 300;
   color: #656263;
   margin-top: 0; }
-.mainPage .reviews .reviews-block .comment h5 {
+.reviews .reviews-block .comment h5 {
   font-size: 14px;
   font-weight: 500;
   margin: 0 0 22px 0;
@@ -964,28 +964,28 @@ footer .info {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; }
-  .mainPage .reviews .reviews-block {
+  .reviews-block {
     margin-bottom: 40px; } }
 
 @media (min-width: 768px) {
-  .mainPage .reviews {
+  .reviews {
     padding: 30px 20px; }
-  .mainPage .reviews .reviews-block .comment p {
+  .reviews .reviews-block .comment p {
     font-size: 14px; }
-  .mainPage .reviews .reviews-block .image {
+   .reviews .reviews-block .image {
     width: 124px;
     height: 124px;
     min-width: 124px;
     min-height: 124px;
     margin-right: 29px; } }
 @media (min-width: 1200px) {
-  .mainPage .reviews {
+  .reviews {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
     padding: 50px 0 0 0; }
-  .mainPage .reviews .reviews-block {
+  .reviews .reviews-block {
     width: 31%;
     box-sizing: border-box; } }
 
@@ -1050,14 +1050,14 @@ footer .info {
     font-weight: 500;
     margin-bottom: 30px;
   }
-  .mainPage .reviews h2 {
+  .reviews h2 {
     font-size: 28px;
     margin-bottom: 53px;
   }
-  .mainPage .reviews .reviews-block .comment p {
+  .reviews .reviews-block .comment p {
     font-size: 17px;
   }
-  .mainPage .reviews .reviews-block .comment h5 {
+  .reviews .reviews-block .comment h5 {
     font-size: 20px;
 
   }
@@ -1295,6 +1295,7 @@ footer .info {
 @media (min-width: 1200px) {
   .productPage {
     width: auto;
+    margin-top: 90px;
     flex-wrap: nowrap; }
   .productPage__info-button {
     max-width: 200px; }
@@ -1353,6 +1354,9 @@ footer .info {
   .productPage__carousel {
     min-width: 545px; } }
 @media (min-width: 1920px) {
+  .productPage {
+    margin-top: 90px;
+  }
   .productPage__info {
     min-width: 500px;
   }

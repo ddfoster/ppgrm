@@ -147,5 +147,26 @@ if ( post_password_required() ) {
         </ul>
     </div>
 </section>
+<div class="reviews">
+
+            <?php if(get_field('reviews', 5)): ?>
+                <?php while(has_sub_field('reviews', 5)): ?>
+                    <h2><?php the_sub_field('title');?></h2>
+                    <?php while(has_sub_field('review_item')): ?>
+                        <div class="reviews-block">
+                            <div class="image">
+                                <img src="<?php the_sub_field('image');?>" alt="">
+                            </div>
+                            <div class="comment">
+                                <p><?php the_sub_field('review_text');?></p>
+                                <h5><?php the_sub_field('reviewer_info');?></h5>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+
+        </div>
 </div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
