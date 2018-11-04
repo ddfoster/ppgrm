@@ -99,54 +99,52 @@ if ( post_password_required() ) {
 
 </section>
 </div>
-<div class="container">
-    <section class="popularWallets">
-        <h2>Популярні гаманці</h2>
-        <div class="popularWallets__carousel products-container">
-            <ul class="products-wrapper">
-                <?php
-                $args = array(
-                    'post_type' => 'product',
-                    'meta_key' => 'total_sales',
-                    'orderby' => 'meta_value_num',
-                    'posts_per_page' => 5,
-                );
-                $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) : $loop->the_post();
-                    global $product;
-                    $attachment_ids = $product->get_gallery_attachment_ids() ?>
-                    <li class="product-item">
-                        <div class="product-item_carousel">
-                            <div class="single-item_block">
-                                <a class="image" href="<?php the_permalink(); ?>">
-                                    <?php if (has_post_thumbnail( $loop->post->ID ))
-                                        echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
-                                    else echo '<img src="'.get_the_post_thumbnail().'" alt="product placeholder Image"'; ?>
-                                </a>
-                            </div>
+<section class="popularWallets">
+    <h2>Популярні гаманці</h2>
+    <div class="popularWallets__carousel products-container">
+        <ul class="products-wrapper">
+        <?php
+        $args = array(
+            'post_type' => 'product',
+            'meta_key' => 'total_sales',
+            'orderby' => 'meta_value_num',
+            'posts_per_page' => 5,
+        );
+        $loop = new WP_Query( $args );
+        while ( $loop->have_posts() ) : $loop->the_post();
+            global $product;
+            $attachment_ids = $product->get_gallery_attachment_ids() ?>
+            <li class="product-item">
+                <div class="product-item_carousel">
+                    <div class="single-item_block">
+                        <a class="image" href="<?php the_permalink(); ?>">
+                            <?php if (has_post_thumbnail( $loop->post->ID ))
+                                echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
+                            else echo '<img src="'.get_the_post_thumbnail().'" alt="product placeholder Image"'; ?>
+                        </a>
+                    </div>
 
-                            <?php  foreach( array_slice( $attachment_ids, 0,2 ) as $attachment_id ) {
-                                $thumbnail_url = wp_get_attachment_image_src( $attachment_id, "full" )[0];
-                                echo '<div class="single-item_block">
+                    <?php  foreach( array_slice( $attachment_ids, 0,2 ) as $attachment_id ) {
+                        $thumbnail_url = wp_get_attachment_image_src( $attachment_id, "full" )[0];
+                        echo '<div class="single-item_block">
                                 <a class="image" href="'. get_the_permalink() .'">
                                     <img src="' . $thumbnail_url . '" />
                                 </a>
                               </div>';
-                            }?>
-                        </div>
-                        <div class="info">
-                            <a href="<?php the_permalink(); ?>" class="name"><?php the_title(); ?></a>
-                            <div>
-                                <a href="<?php the_permalink(); ?>" class="price"><?php echo $product->get_price_html(); ?></a>
-                                <?php do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );?>
-                            </div>
-                        </div>
-                    </li>
-                <?php endwhile; ?>
-                <?php wp_reset_query(); ?>
-            </ul>
-        </div>
-    </section>
-</div>
+                    }?>
+                </div>
+                <div class="info">
+                    <a href="<?php the_permalink(); ?>" class="name"><?php the_title(); ?></a>
+                    <div>
+                        <a href="<?php the_permalink(); ?>" class="price"><?php echo $product->get_price_html(); ?></a>
+                        <?php do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );?>
+                    </div>
+                </div>
+            </li>
+        <?php endwhile; ?>
+        <?php wp_reset_query(); ?>
+        </ul>
+    </div>
+</section>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

@@ -30,6 +30,12 @@ get_header( 'shop' );
 
 ?>
 
+<style>
+    .product-item{
+        display: none;
+    }
+</style>
+
 <div class="mainPage">
     <div class="mainPage_product-description">
         <div class="mainPage_product-description-welcome"></div>
@@ -149,6 +155,8 @@ get_header( 'shop' );
             do_action( 'woocommerce_sidebar' );
 
             ?>
+
+            <button id="loadMore">123</button>
         </div>
 
         <div class="reviews">

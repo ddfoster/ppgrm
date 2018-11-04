@@ -76,13 +76,13 @@ $('.slider-nav').slick({
         {
             breakpoint: 768,
             settings: {
-                vertical: true,
+                vertical: true
             }
         },
         {
             breakpoint: 1500,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: 3
             }
         },
         // {
@@ -94,7 +94,6 @@ $('.slider-nav').slick({
     ]
 });
 $('.single-item').slick({
-
     slidesToShow: 4,
     slidesToScroll: 3,
     dots: false,
@@ -126,14 +125,62 @@ $(document).ready(function() {
     $('#billing_country').val('UA');
 });
 
-$('.single_add_to_cart_button').click(function () {
-    setTimeout(function () {
-        $('.single_add_to_cart_button').text("Додано в кошик")
-    }, 2000);
-});
-
 
 $(document).ready(function() {
-    $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );
+    $( "<div class='new'>NEW!</div>" ).appendTo( $( ".new .product-item_carousel" ) );
     $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
 });
+
+
+(function(){
+    // Your base, I'm in it!
+    var originalAddClassMethod = jQuery.fn.addClass;
+
+    jQuery.fn.addClass = function(){
+        // Execute the original method.
+        var result = originalAddClassMethod.apply( this, arguments );
+
+        // trigger a custom event
+        jQuery(this).trigger('cssClassChanged');
+
+        // return the original result
+        return result;
+    }
+})();
+
+// document ready function
+$(document).ready(function() {
+    $(function(){
+        $(".single_add_to_cart_button").bind('cssClassChanged', function(){
+            alert('class change')
+        });
+    });
+});
+
+// if($('.single_add_to_cart_button').hasClass('loading')){
+//     $('.single_add_to_cart_button').text("жди!")
+// } else if($('.single_add_to_cart_button').hasClass('add')){
+//     $('.single_add_to_cart_button').text("дождался!")
+// }
+
+
+// // $(document).ready(function(){
+//     $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
+// // });
+
+$(document).ready(function () {
+    $(".product-item").slice(0, 2).show();
+
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+
+        $(".product-item:hidden").slice(0, 2).fadeIn();
+        $('.product-item .slick-active').trigger('click');
+
+        if ($(".product-item:hidden").length == 0) {
+            $("#loadMore").fadeOut('slow');
+        }
+    });
+});
+
+

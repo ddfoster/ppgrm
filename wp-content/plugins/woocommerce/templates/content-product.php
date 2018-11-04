@@ -24,9 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-
-<?php //wc_product_class(); ?>
-<li class="product-item">
+<li <?php wc_product_class(); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
@@ -42,7 +40,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_product_thumbnail - 10
 	 */
 	do_action( 'woocommerce_before_shop_loop_item_title' );
-    //do_action( 'woocommerce_before_single_product_summary' );
 
 	/**
 	 * Hook: woocommerce_shop_loop_item_title.

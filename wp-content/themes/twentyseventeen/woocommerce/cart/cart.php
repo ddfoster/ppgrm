@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.5.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -45,13 +45,13 @@ do_action( 'woocommerce_before_cart' ); ?>
                         <div class="woocommerce-cart-form__cart-item cartPage-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
                             <div class="image">
                                 <?php
-                                $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+                                    $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
-                                if ( ! $product_permalink ) {
-                                    echo wp_kses_post( $thumbnail );
-                                } else {
-                                    printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), wp_kses_post( $thumbnail ) );
-                                }
+                                    if ( ! $product_permalink ) {
+                                        echo wp_kses_post( $thumbnail );
+                                    } else {
+                                        printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), wp_kses_post( $thumbnail ) );
+                                    }
                                 ?>
 
                             </div>

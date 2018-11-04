@@ -29,7 +29,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 
 <?php //wc_product_class(); ?>
-<li class="product-item <?php echo $value ?>">
+
+<li class="product-item product type-product purchasable product-type-simple <?php echo $value ?>"  >
     <?php
         do_action( 'woocommerce_shop_loop_item_title' );
         do_action( 'woocommerce_after_shop_loop_item_title' );

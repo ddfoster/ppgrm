@@ -14,11 +14,7 @@
  * @package WooCommerce/Templates
  * @version 3.4.0
  */
-global $post;
-global $product;
 
-$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
-$attachment_ids = $product->get_gallery_attachment_ids();
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -46,27 +42,6 @@ if ( post_password_required() ) {
 	?>
 
 	<div class="summary entry-summary">
-        123
-        <?php the_title(); ?>
-        <p class="price"><?php echo $product->get_price_html(); ?></p>
-        <div class="woocommerce-product-details__short-description">
-            <?php echo $short_description; ?>
-        </div>
-        <?php do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );?>
-
-        <hr />
-
-        <?php
-        foreach( $attachment_ids as $attachment_id ) {
-            echo $image_link = wp_get_attachment_url( $attachment_id ) . "\n";
-            }
-        ?>
-
-        <?php the_post_thumbnail_url();?>
-        <hr />
-
-
-
 		<?php
 			/**
 			 * Hook: woocommerce_single_product_summary.
@@ -80,7 +55,7 @@ if ( post_password_required() ) {
 			 * @hooked woocommerce_template_single_sharing - 50
 			 * @hooked WC_Structured_Data::generate_product_data() - 60
 			 */
-			//do_action( 'woocommerce_single_product_summary' );
+			do_action( 'woocommerce_single_product_summary' );
 		?>
 	</div>
 
@@ -92,7 +67,7 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
 		 */
-		//do_action( 'woocommerce_after_single_product_summary' );
+		do_action( 'woocommerce_after_single_product_summary' );
 	?>
 </div>
 

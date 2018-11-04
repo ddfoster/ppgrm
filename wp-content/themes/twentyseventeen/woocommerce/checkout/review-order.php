@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="info">
                     <div>
                         <div class="price">
-                            <?php echo $_product->get_price_html(); ?>
+                            <?php echo $_product->price ?>
                         </div>
                         <div class="name">
                             <?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ); ?>

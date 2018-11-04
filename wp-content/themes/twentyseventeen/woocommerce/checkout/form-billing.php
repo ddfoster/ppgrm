@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** @global WC_Checkout $checkout */
 
 ?>
+
 <div class="woocommerce-billing-fields">
     <?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
@@ -43,3 +44,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
+

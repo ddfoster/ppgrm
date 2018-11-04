@@ -85,3 +85,13 @@
 .product-item .info > div .stock{
     display: none;
 }
+
+.woocommerce ul.products::after, .woocommerce ul.products::before, .woocommerce-page ul.products::after, .woocommerce-page ul.products::before{
+    display: none;
+}
+
+.cartPage-item .image img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}

@@ -12,23 +12,31 @@
 
 get_header(); ?>
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<style>
+    body{
+        padding-top: 0;
+    }
+    header, footer{
+        display: none;
+    }
+</style>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'twentyseventeen' ); ?></h1>
-				</header><!-- .page-header -->
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?></p>
-
-					<?php get_search_form(); ?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div><!-- .wrap -->
+    <div class="error-page">
+        <a href="/" class="error-page_logo">
+            <img src="<?php bloginfo('template_url')?>/assets/img/papigram-logo.png" alt="">
+        </a>
+        <div class="error-page_image">
+            <img src="<?php bloginfo('template_url')?>/assets/img/404wallet1.png" alt="">
+        </div>
+        <div class="error-page_info">
+            <div><a href="/">На головну!</a></div>
+            <h5>Загальні запити<span>info@papirgam.com</span></h5>
+            <h5>Відділ продажу<span>sales@papirgam.com</span></h5>
+            <h5>Співпраця<span>colab@papirgam.com</span></h5>
+            <div class="copyright">
+                © Papirgam 2019
+            </div>
+        </div>
+    </div>
 
 <?php get_footer();

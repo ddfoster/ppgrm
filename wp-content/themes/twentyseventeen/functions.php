@@ -416,7 +416,6 @@ function twentyseventeen_scripts() {
 
 
     wp_enqueue_style( 'app.min', get_theme_file_uri( '/assets/css/app.min.css' ));
-    wp_enqueue_style( 'reset', get_theme_file_uri( '/assets/css/reset.css' ));
     wp_enqueue_style( 'main', get_theme_file_uri( '/assets/css/main.css' ));
     wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );
     wp_enqueue_script( 'libs', get_theme_file_uri( '/assets/js/libs.min.js' ), array( 'jquery' ), '1.0', true );
@@ -553,18 +552,8 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 
 
-
-
-add_filter ( 'woocommerce_product_thumbnails_columns', 'bbloomer_change_gallery_columns' );
-
-function bbloomer_change_gallery_columns() {
-    return 1;
-}
-
-
-
+//hide feild for woocomerce checkout
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
-
 function custom_override_checkout_fields( $fields ) {
     unset($fields['billing']['billing_company']);
     unset($fields['billing']['billing_address_1']);
@@ -593,7 +582,6 @@ function wps_add_extra_product_thumbs() {
 					   <img src="' . get_the_post_thumbnail_url() . '" />
 					</a>
 				</div>';
-//        the_post_thumbnail_url();
         foreach( array_slice( $attachment_ids, 0,2 ) as $attachment_id ) {
             $thumbnail_url = wp_get_attachment_image_src( $attachment_id, "full" )[0];
 
@@ -623,18 +611,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 }
 
 
-//
-//add_filter( 'woocommerce_product_single_add_to_cart_text', 'bbloomer_custom_add_cart_button_single_product' );
-//function bbloomer_custom_add_cart_button_single_product( $label ) {
-//    foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
-//        $product = $values['data'];
-//        if( get_the_ID() == $product->get_id() ) {
-//            $label = __('Додано в кошик', 'woocommerce');
-//        }
-//    }
-//
-//    return $label;
-//};
+
 
 add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
 
@@ -645,6 +622,7 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
     return $currency_symbol;
 }
 
+//update header cart
 add_action( 'wp_footer', 'cart_update_qty_script' );
 function cart_update_qty_script() {
     if (is_cart()) :
@@ -667,26 +645,8 @@ add_action( 'woocommerce_checkout_order_review_2', 'woocommerce_checkout_payment
 
 
 
-function woo_in_cart($product_id) {
-    global $woocommerce;
 
-    foreach($woocommerce->cart->get_cart() as $key => $val ) {
-        $_product = $val['data'];
-
-        if($product_id == $_product->id ) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-
-
-/**
- * Hide editor on specific pages.
- *
- */
+//hide defualt editor
 add_action( 'admin_init', 'hide_editor' );
 function hide_editor() {
     // Get the Post ID.
@@ -709,6 +669,7 @@ function hide_editor() {
     }
 }
 
+//hide defualt editor product
 function remove_product_editor() {
     remove_post_type_support( 'product', 'editor' );
 }
@@ -716,7 +677,7 @@ add_action( 'init', 'remove_product_editor' );
 
 
 
-
+//change text when product added in cart
 add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');
 function woo_custom_cart_button_text() {
 
@@ -732,7 +693,7 @@ function woo_custom_cart_button_text() {
 }
 
 
-
+//check if in cart product
 function is_in_cart( $ids ) {
     // Initialise
     $found = false;
@@ -752,4 +713,46 @@ function is_in_cart( $ids ) {
     }
 
     return $found;
+}
+
+//change default title on archive page
+function woocommerce_template_loop_product_title() {
+    echo '<div class="info"><div class="name">' . get_the_title() . '</div>';
+}
+
+
+//disable woo styles
+/**
+ * Set WooCommerce image dimensions upon theme activation
+ */
+// Remove each style one by one
+add_filter( 'woocommerce_enqueue_styles', 'jk_dequeue_styles' );
+function jk_dequeue_styles( $enqueue_styles ) {
+    unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+    unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+    unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+    return $enqueue_styles;
+}
+
+// Or just remove them all in one line
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+
+
+
+add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
+function single_add_to_cart_event_text_replacement() {
+    global $product;
+
+    if( ! is_product() ) return; // Only single product pages
+    if( $product->is_type('variable') ) return; // Not variable products
+    ?>
+    <script type="text/javascript">
+        (function($){
+            $('button.single_add_to_cart_button').click( function(){
+                $(this).text('<?php _e( "Додано в кошик", "woocommerce" ); ?>');
+            });
+        })(jQuery);
+    </script>
+    <?php
 }
