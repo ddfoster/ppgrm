@@ -55,12 +55,6 @@
     display: none;
 }
 
-.cartPage-item .info .name a{
-    font-size: 15px;
-    font-weight: 300;
-    color: #545b6c;
-    text-decoration: none;
-}
 
 /*#billing_country_field{*/
     /*display: none;*/
@@ -88,10 +82,4 @@
 
 .woocommerce ul.products::after, .woocommerce ul.products::before, .woocommerce-page ul.products::after, .woocommerce-page ul.products::before{
     display: none;
-}
-
-.cartPage-item .image img{
-    width: 100%;
-    height: auto;
-    max-width: 100%;
 }

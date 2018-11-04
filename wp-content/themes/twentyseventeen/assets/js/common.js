@@ -127,7 +127,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $( "<div class='new'>NEW!</div>" ).appendTo( $( ".new .product-item_carousel" ) );
+    $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );
     $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
 });
 
@@ -157,16 +157,9 @@ $(document).ready(function() {
     });
 });
 
-// if($('.single_add_to_cart_button').hasClass('loading')){
-//     $('.single_add_to_cart_button').text("жди!")
-// } else if($('.single_add_to_cart_button').hasClass('add')){
-//     $('.single_add_to_cart_button').text("дождался!")
-// }
-
-
-// // $(document).ready(function(){
-//     $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
-// // });
+ $(document).ready(function(){
+    $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
+ });
 
 
 if ($(window).width() < 576) {
@@ -186,6 +179,15 @@ if ($(window).width() < 576) {
     });
 }
 
+$(document).on('click',function() {
+    var myLink = $('.add_to_cart_button');
+    if (myLink.hasClass('loading')) {
+        $('.add_to_cart_button.loading').closest('li.product-item').addClass('loading');
+    }
+    else {
+        $('.add_to_cart_button').closest('li.product-item').removeClass('loading');
+    }
+});
 
 
 

@@ -99,6 +99,7 @@ if ( post_password_required() ) {
 
 </section>
 </div>
+<div class="container">
 <section class="popularWallets">
     <h2>Популярні гаманці</h2>
     <div class="popularWallets__carousel products-container">
@@ -146,5 +147,5 @@ if ( post_password_required() ) {
         </ul>
     </div>
 </section>
-
+</div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
