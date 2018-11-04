@@ -168,19 +168,24 @@ $(document).ready(function() {
 //     $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
 // // });
 
-$(document).ready(function () {
-    $(".product-item").slice(0, 2).show();
 
-    $("#loadMore").on('click', function (e) {
-        e.preventDefault();
+if ($(window).width() < 576) {
+    $(document).ready(function () {
+        $(".product-item").slice(0, 2).show();
 
-        $(".product-item:hidden").slice(0, 2).fadeIn();
-        $('.product-item .slick-active').trigger('click');
+        $("#loadMore").on('click', function (e) {
+            e.preventDefault();
 
-        if ($(".product-item:hidden").length == 0) {
-            $("#loadMore").fadeOut('slow');
-        }
+            $(".product-item:hidden").slice(0, 2).fadeIn();
+            $('.product-item .slick-active').trigger('click');
+
+            if ($(".product-item:hidden").length == 0) {
+                $("#loadMore").fadeOut('slow');
+            }
+        });
     });
-});
+}
+
+
 
 

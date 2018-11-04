@@ -31,8 +31,10 @@ get_header( 'shop' );
 ?>
 
 <style>
-    .product-item{
-        display: none;
+    @media(max-width: 576px){
+        .product-item{
+            display: none;
+        }
     }
 </style>
 
