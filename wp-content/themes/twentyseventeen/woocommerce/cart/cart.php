@@ -140,6 +140,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
         <div class="newpost-info">
             <img src="<?php bloginfo('template_url')?>/assets/img/newpost.png" alt="">
+            <h2>Доставка “Новаю Поштою”</h2>
             <p>Доставка гаманців Papirgam по Україні здійснюється службою “Нова Пошта” до будь-якого відділення компанії. Термін доставки 1-3 дні, при наявності товару на складі. Вартість доставки від 50 грн. </p>
         </div>
     </div>

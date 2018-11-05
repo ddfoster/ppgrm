@@ -48,7 +48,7 @@ get_header( 'shop' );
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-small">
         <div class="mainPage_carousel-description">
             <div class="single-item">
                 <?php if(get_field('products_properties', 5)): ?>
@@ -62,7 +62,7 @@ get_header( 'shop' );
                 <?php endif; ?>
             </div>
         </div>
-
+    </div>
         <div class="mainPage_small-description mainPage_small-description-top">
             <div class="info">
                 <?php if(get_field('about_1', 5)): ?>
@@ -104,7 +104,7 @@ get_header( 'shop' );
                 <?php endif; ?>
             </div>
         </div>
-
+        <div class="container">
         <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title', 5); ?> </h2>
 
         <div class="products-container">

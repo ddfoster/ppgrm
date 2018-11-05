@@ -28,26 +28,26 @@
         <?php dynamic_sidebar('header-widget'); ?>
         <div class="header-bottom">
             <a href="/"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
+            <div class="header-bottom_content">
 
-
-            <?php
-            wp_nav_menu([
-                'menu'            => 'TopMenu',
-                'theme_location'  => 'header-menu',
-                'container'       => 'div',
-                'container_class' => 'links',
-//                'menu_id'         => false,
-//                'menu_class'      => 'navbar-nav',
-//                'fallback_cb'     => 'bs4navwalker::fallback',
-//                'walker'          => new bs4navwalker()
-            ]);
+                <?php
+                wp_nav_menu([
+                    'menu'            => 'TopMenu',
+                    'theme_location'  => 'header-menu',
+                    'container'       => 'div',
+                    'container_class' => 'links',
+    //                'menu_id'         => false,
+    //                'menu_class'      => 'navbar-nav',
+    //                'fallback_cb'     => 'bs4navwalker::fallback',
+    //                'walker'          => new bs4navwalker()
+                ]);
             ?>
 
-<!--            <div class="links">-->
-<!--                <a href="/">Головна</a>-->
-                <a href="<?php echo wc_get_cart_url(); ?>">Кошик
-                    <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span></a>
-<!--            </div>-->
+
+                <a href="<?php echo wc_get_cart_url(); ?>" class="header-cart">Кошик
+                    <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span>
+                </a>
+            </div>
         </div>
     </header>
 
