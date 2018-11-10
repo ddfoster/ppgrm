@@ -26,8 +26,7 @@ get_header( 'shop' );
  * @hooked woocommerce_breadcrumb - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
-//do_action( 'woocommerce_before_main_content' );
-
+$id = apply_filters( 'wpml_object_id', 5, 'post' );
 ?>
 
 <div class="mainPage">
@@ -35,15 +34,18 @@ get_header( 'shop' );
         <div class="mainPage_product-description-welcome"></div>
         <div class="mainPage_product-description-about">
             <div class="container">
-                <?php if(get_field('shop_header', 5)): ?>
-                    <?php while(the_repeater_field('shop_header', 5)): ?>
-                        <h1><?php the_sub_field('title');?></h1>
+                <?php if(have_rows('shop_header', $id)): ?>
+                    <?php while(the_repeater_field('shop_header', $id)): ?>
+                        <h1 ><?php the_sub_field('title');?></h1>
                         <p><?php the_sub_field('description');?></p>
                         <div class="buttons">
                             <a href="#buy-wallet" class="buy"><?php the_sub_field('buy_button');?></a>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
+
+
+
             </div>
         </div>
     </div>
@@ -51,8 +53,8 @@ get_header( 'shop' );
     <div class="container-small">
         <div class="mainPage_carousel-description">
             <div class="single-item">
-                <?php if(get_field('products_properties', 5)): ?>
-                    <?php while(the_repeater_field('products_properties', 5)): ?>
+                <?php if(get_field('products_properties', $id)): ?>
+                    <?php while(the_repeater_field('products_properties', $id)): ?>
                         <div class="single-item_block">
                             <img src="<?php the_sub_field('image');?>" alt="">
                             <h3><?php the_sub_field('title');?></h3>
@@ -65,13 +67,13 @@ get_header( 'shop' );
     </div>
         <div class="mainPage_small-description mainPage_small-description-top">
             <div class="info">
-                <?php if(get_field('about_1', 5)): ?>
-                    <?php while(the_repeater_field('about_1', 5)): ?>
+                <?php if(get_field('about_1', $id)): ?>
+                    <?php while(the_repeater_field('about_1', $id)): ?>
                         <h4><?php the_sub_field('title');?></h4>
                         <p><?php the_sub_field('description');?></p>
                         <img src="<?php the_sub_field('background_image');?>" alt="">
                         <div class="block">
-                            <?php while(the_repeater_field('about_properties', 5)): ?>
+                            <?php while(the_repeater_field('about_properties', $id)): ?>
                                 <div class="block-item">
                                     <span> <?php the_sub_field('title');?></span>
                                     <img src=" <?php the_sub_field('image');?>" alt="">
@@ -87,12 +89,12 @@ get_header( 'shop' );
         <div class="mainPage_small-description mainPage_small-description-bottom">
             <div class="image-bottom"></div>
             <div class="info">
-                <?php if(get_field('about_2', 5)): ?>
-                    <?php while(the_repeater_field('about_2', 5)): ?>
+                <?php if(get_field('about_2', $id)): ?>
+                    <?php while(the_repeater_field('about_2', $id)): ?>
                         <h4><?php the_sub_field('title');?></h4>
                         <p><?php the_sub_field('description');?></p>
                         <div class="block">
-                            <?php while(the_repeater_field('about_properties', 5)): ?>
+                            <?php while(the_repeater_field('about_properties', $id)): ?>
                                 <div class="block-item big">
                                     <h5><?php the_sub_field('title');?></h5>
                                     <span><?php the_sub_field('value');?></span>
@@ -105,7 +107,7 @@ get_header( 'shop' );
             </div>
         </div>
         <div class="container">
-        <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title', 5); ?> </h2>
+        <h2 class="choose-heading buy-wallet" id="buy-wallet"> <?php the_field('before_shop_title', $id); ?> </h2>
 
         <div class="products-container">
             <?php
@@ -124,14 +126,18 @@ get_header( 'shop' );
                     do_action( 'woocommerce_no_products_found' );
                 }
                 do_action( 'woocommerce_sidebar' );
+                wp_reset_query();
             ?>
+
         </div>
 
         <div class="reviews">
-            <?php if(get_field('reviews', 5)): ?>
-                <?php while(has_sub_field('reviews', 5)): ?>
+
+            <?php $id = apply_filters( 'wpml_object_id', 5, 'post' );?>
+            <?php if(have_rows('reviews', $id)): ?>
+                <?php while(the_repeater_field('reviews', $id)): ?>
                     <h2><?php the_sub_field('title');?></h2>
-                    <?php while(has_sub_field('review_item')): ?>
+                    <?php while(the_repeater_field('review_item', $id)): ?>
                         <div class="reviews-block">
                             <div class="image">
                                 <img src="<?php the_sub_field('image');?>" alt="">
@@ -148,7 +154,7 @@ get_header( 'shop' );
     </div>
 
     <div class="subscribe">
-        <p>Підпишись, щоб не пропустити цікаві пропозиції новини і натхнення! </p>
+        <p><?php _e( 'Підпишись, щоб не пропустити цікаві пропозиції новини і натхнення!', 'custom-text' ) ?></p>
         <div class="send-email">
             <form action="">
                 <input class="email" type="email" name="email" placeholder="Твій e-mail">

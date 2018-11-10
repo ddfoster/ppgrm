@@ -32,6 +32,9 @@ if ( post_password_required() ) {
     echo get_the_password_form(); // WPCS: XSS ok.
     return;
 }
+
+$id = apply_filters( 'wpml_object_id', 5, 'post' );
+
 ?>
 <section id="product-<?php the_ID(); ?>" class="productPage" <?php wc_product_class(); ?>>
     <div class="productPage__carousel">
@@ -64,16 +67,16 @@ if ( post_password_required() ) {
                 <div class="price"><?php echo $product->get_price_html(); ?></div>
                 <div class="availability">
                     <?php if( $product->get_stock_quantity()):
-                        echo "In Stock";
+                        _e( 'Є в наявності', 'custom-text' );
                     else:
-                        echo "Out of stock";
+                        _e( 'Немає в наявності', 'custom-text' );
                     endif;
                     ?>
                 </div>
             </div>
             <div>
-                <p>Доставка: <span><?php the_field('delivery'); ?></span></p>
-                <p>Оплата: <span><?php the_field('payment'); ?></span></p>
+                <p><?php _e( 'Доставка', 'custom-text' ) ?>: <span><?php the_field('delivery'); ?></span></p>
+                <p><?php _e( 'Оплата', 'custom-text' ) ?>: <span><?php the_field('payment'); ?></span></p>
             </div>
         </div>
         <div class="productPage__info-button">
@@ -101,7 +104,7 @@ if ( post_password_required() ) {
 
 <div class="container">
     <section class="popularWallets">
-        <h2>Популярні гаманці</h2>
+        <h2><?php _e( 'Популярні гаманці', 'custom-text' ) ?></h2>
         <div class="popularWallets__carousel products-container">
             <ul class="products-wrapper">
                 <?php
@@ -149,10 +152,10 @@ if ( post_password_required() ) {
     </section>
 
     <div class="reviews">
-        <?php if(get_field('reviews', 5)): ?>
-            <?php while(has_sub_field('reviews', 5)): ?>
+        <?php if(get_field('reviews', $id)): ?>
+            <?php while(the_repeater_field('reviews', $id)): ?>
                 <h2><?php the_sub_field('title');?></h2>
-                <?php while(has_sub_field('review_item')): ?>
+                <?php while(the_repeater_field('review_item', $id)): ?>
                     <div class="reviews-block">
                         <div class="image">
                             <img src="<?php the_sub_field('image');?>" alt="">

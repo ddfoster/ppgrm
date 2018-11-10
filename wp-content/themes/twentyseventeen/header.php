@@ -44,7 +44,7 @@
             ?>
 
 
-                <a href="<?php echo wc_get_cart_url(); ?>" class="header-cart">Кошик
+                <a href="<?php echo wc_get_cart_url(); ?>" class="header-cart"><?php _e( 'Кошик', 'custom-text' ) ?>
                     <span class="cart-count"><?php echo sprintf (WC()->cart->get_cart_contents_count() ); ?></span>
                 </a>
             </div>

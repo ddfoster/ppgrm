@@ -34,5 +34,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     </div>
     <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
-    <a href="/" class="shopping">Продовжити покупки</a>
+    <a href="/" class="shopping"><?php _e( 'Продовжити покупки', 'custom-text' ) ?></a>
 </div>

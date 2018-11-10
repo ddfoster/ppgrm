@@ -17,7 +17,7 @@
             <div class="popup-wrapper">
                 <div class="popup">
                     <div class="popup-header">
-                        <h2>Гаманець додано до кошика!</h2>
+                        <h2><?php _e( 'Гаманець додано до кошика!', 'custom-text' ) ?></h2>
                         <a href="#" class="yith-wacp-close delete-button"><?php echo __('', 'yith-woocommerce-added-to-cart-popup ') ?></a>
                     </div>
                     <div class="popup-body">

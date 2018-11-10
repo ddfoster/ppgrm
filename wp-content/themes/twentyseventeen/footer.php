@@ -17,8 +17,7 @@
     <div class="social">
 
         <?php dynamic_sidebar('footer-social'); ?>
-
-        <h2>Ми в соціальних мережах</h2>
+        <h2><?php _e( 'Ми в соціальних мережах', 'custom-text' ) ?></h2>
         <div class="links">
             <a href="#"><img src="<?php bloginfo("template_url")?>/assets/img/facebook.png" alt=""></a>
             <a href="#"><img src="<?php bloginfo("template_url")?>/assets/img/instagram.png" alt=""></a>
@@ -49,7 +48,7 @@
 
 <!--            <a href="#">Головна</a>-->
 <!--            <a href="#">Гаманці</a>-->
-            <a class="logo" href="index.html">
+            <a class="logo" href="/">
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>
             <div class="copyright">

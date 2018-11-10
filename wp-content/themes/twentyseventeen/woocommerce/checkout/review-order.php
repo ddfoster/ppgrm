@@ -51,9 +51,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     do_action( 'woocommerce_review_order_after_cart_contents' );
     ?>
-        <h2>Разом</h2>
+        <h2><?php _e( 'Разом', 'custom-text' ) ?></h2>
         <div class="total-amount cart-subtotal">
-            <div><?php _e( 'Subtotal', 'woocommerce' ); ?></div>
+            <div><?php _e( 'Всього', 'custom-text' ) ?></div>
             <div><?php wc_cart_totals_subtotal_html(); ?></div>
         </div>
 
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
         <div class="payment-amount order-total">
-            <div><?php _e( 'Total', 'woocommerce' ); ?></div>
+            <div><?php _e( 'До оплати', 'custom-text' ) ?></div>
             <div><?php wc_cart_totals_order_total_html(); ?></div>
         </div>
 
