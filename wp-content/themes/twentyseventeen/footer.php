@@ -52,6 +52,7 @@
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>
             <div class="copyright">
+                <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
                 © Papirgam 2019
             </div>
         </div>

@@ -152,7 +152,8 @@ $id = apply_filters( 'wpml_object_id', 5, 'post' );
     </section>
 
     <div class="reviews">
-        <?php if(get_field('reviews', $id)): ?>
+        <?php $id = apply_filters( 'wpml_object_id', 5, 'post' );?>
+        <?php if(have_rows('reviews', $id)): ?>
             <?php while(the_repeater_field('reviews', $id)): ?>
                 <h2><?php the_sub_field('title');?></h2>
                 <?php while(the_repeater_field('review_item', $id)): ?>
