@@ -59,9 +59,7 @@ $cart_item = WC()->cart->get_cart_item( $last_cart_item_key );
                 </div>
                 <div class="name"><?php echo $product->get_title(); ?></div>
             </div>
-<!--            <input type="number" placeholder="1">-->
         </div>
-<!--        <div class="delete-button"></div>-->
     </div>
     <div class="popup-buttons">
         <a href="#" class="pay">Перейти в кошик</a>

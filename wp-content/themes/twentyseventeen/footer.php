@@ -48,7 +48,7 @@
 
 <!--            <a href="#">Головна</a>-->
 <!--            <a href="#">Гаманці</a>-->
-            <a class="logo" href="/">
+            <a class="logo" href="<?php echo $my_home_url?>">
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>
             <div class="copyright">

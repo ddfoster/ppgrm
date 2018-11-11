@@ -18,7 +18,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-
+<?php $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) ); ?>
 <?php wp_head(); ?>
 </head>
 
@@ -27,7 +27,7 @@
     <header class="header">
         <?php dynamic_sidebar('header-widget'); ?>
         <div class="header-bottom">
-            <a href="/"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
+            <a href="<?php echo $my_home_url?>"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
             <div class="header-bottom_content">
 
                 <?php
