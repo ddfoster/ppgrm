@@ -58,7 +58,7 @@ $('.slider-for').slick({
 });
 $('.slider-nav').slick({
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     asNavFor: '.slider-for',
     dots: false,
     arrows: false,
@@ -76,21 +76,25 @@ $('.slider-nav').slick({
         {
             breakpoint: 768,
             settings: {
-                vertical: true
+                vertical: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
             }
         },
         {
             breakpoint: 1500,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 3,
+                slidesToScroll: 3
             }
         },
-        // {
-        //     breakpoint: 4000,
-        //     settings: {
-        //         slidesToShow: 4,
-        //     }
-        // },
+        {
+            breakpoint: 5000,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4
+            }
+        }
     ]
 });
 $('.single-item').slick({
