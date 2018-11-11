@@ -23,16 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="cart_totals calculator <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
     <?php do_action( 'woocommerce_before_cart_totals' ); ?>
-    <h2><?php _e( 'Cart totals', 'woocommerce' ); ?></h2>
+    <h2><?php _e( 'Разом', 'custom-text' ) ?></h2>
     <div class="total-amount">
-        <span><?php _e( 'Total', 'woocommerce' ); ?>:</span>
+        <span><?php _e( 'Всього', 'custom-text' ); ?>:</span>
         <span class="price"><?php wc_cart_totals_order_total_html(); ?></span>
     </div>
     <div class="payment-amount">
-        <span><?php _e( 'Subtotal', 'woocommerce' ); ?></span>
+        <span><?php _e( 'До оплати', 'custom-text' ); ?></span>
         <span class="price"><?php wc_cart_totals_subtotal_html(); ?></span>
 
     </div>
     <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
-    <a href="/" class="shopping"><?php _e( 'Продовжити покупки', 'custom-text' ) ?></a>
+    <a href="<?php echo $my_home_url?>" class="shopping"><?php _e( 'Продовжити покупки', 'custom-text' ) ?></a>
 </div>

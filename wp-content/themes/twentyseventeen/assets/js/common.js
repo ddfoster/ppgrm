@@ -139,7 +139,7 @@ $(document).ready(function(){
 if ($(window).width() < 576) {
     $(document).ready(function () {
         $('.product-item').css('display', 'none');
-        $('.products-container').append("<button id='loadMore'>123</button>");
+        $('.products-container').append("<button id='loadMore'>Завантажити більше гаманців</button>");
 
         $(".product-item").slice(0, 2).show();
 
