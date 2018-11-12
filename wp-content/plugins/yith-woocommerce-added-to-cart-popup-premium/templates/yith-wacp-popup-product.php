@@ -34,7 +34,7 @@ $cart_item = WC()->cart->get_cart_item( $last_cart_item_key );
         <?php if( $thumb ) : ?>
             <div class="image">
                 <?php
-                $thumbnail = $product->get_image( 'yith_wacp_image_size' );
+                $thumbnail = $product->get_image( 'full' );
 
                 if ( ! $product->is_visible() ) {
                     echo $thumbnail;

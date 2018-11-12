@@ -564,8 +564,23 @@ function custom_override_checkout_fields( $fields ) {
     //unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['order']['order_comments']);
+
+    $fields['billing']['billing_first_name']['placeholder'] = __( "Ім’я", "custom-text" );
+    $fields['billing']['billing_last_name']['placeholder'] = __( "Прізвище", "custom-text" );
+    $fields['billing']['billing_phone']['placeholder'] = __( "Email", "custom-text" );
+    $fields['billing']['billing_email']['placeholder'] = __( "Номер телефону", "custom-text" );
+
     return $fields;
 }
+
+//add_filter('woocommerce_default_address_fields', 'override_address_fields');
+//function override_address_fields( $address_fields ) {
+//    $address_fields['billing_first_name']['placeholder'] = 'Test 1';
+//    $address_fields['billing_last_name']['placeholder'] = 'Test 2';
+//    $address_fields['billing_phone']['placeholder'] = 'Test 3';
+//    $address_fields['billing_email']['placeholder'] = 'Test 4';
+//    return $address_fields;
+//}
 
 //* Add gallery thumbs to woocommerce shop page
 add_action('woocommerce_shop_loop_item_title','wps_add_extra_product_thumbs', 5);
@@ -692,6 +707,7 @@ function woo_custom_cart_button_text() {
     return __('Add to cart', 'woocommerce');
 }
 
+
 add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
 function single_add_to_cart_event_text_replacement() {
     global $product;
@@ -702,7 +718,14 @@ function single_add_to_cart_event_text_replacement() {
     <script type="text/javascript">
         (function($){
             $('button.single_add_to_cart_button').click( function(){
-                $(this).text('<?php _e( "Додано в кошик", "woocommerce" ); ?>');
+//                $(this).text('<?php //_e( "Додано в кошик", "woocommerce" ); ?>//');
+
+                var btn = $(this);
+                btn.text('<?php _e( "Зачекайте...", "woocommerce" ); ?>');
+                setTimeout(function () {
+                    btn.text('<?php _e( "Додано в кошик", "woocommerce" ); ?>');
+                }, 3000);
+
             });
         })(jQuery);
     </script>

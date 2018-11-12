@@ -62,6 +62,15 @@
 .woocommerce ul.products::after, .woocommerce ul.products::before, .woocommerce-page ul.products::after, .woocommerce-page ul.products::before{
     display: none;
 }
-body {
-    font-family: 'Roboto', sans-serif;
+/*body {*/
+/*font-family: 'Roboto', sans-serif;*/
+/*}*/
+
+.single_add_to_cart_button.button.loading{
+    opacity: .8;
+    transition: opacity .3s ease;
+}
+
+.product-item.loading{
+    transition: opacity .3s ease;
 }
