@@ -23,10 +23,6 @@
     display: none;
 }
 
-.popup-wrapper .popup-header h2{
-    max-width: 255px;
-}
-
 .screen-reader-text{
     display: none;
 }
