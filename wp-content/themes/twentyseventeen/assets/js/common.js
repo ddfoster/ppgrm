@@ -57,8 +57,8 @@ $('.slider-for').slick({
     asNavFor: '.slider-nav'
 });
 $('.slider-nav').slick({
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     asNavFor: '.slider-for',
     dots: false,
     arrows: false,
@@ -70,7 +70,9 @@ $('.slider-nav').slick({
         {
             breakpoint: 576,
             settings: {
-                vertical: false
+                vertical: false,
+                slidesToShow: 3,
+                slidesToScroll: 4
             }
         },
         {
@@ -78,21 +80,22 @@ $('.slider-nav').slick({
             settings: {
                 vertical: true,
                 slidesToShow: 3,
-                slidesToScroll: 3
+                slidesToScroll: 4
             }
         },
         {
             breakpoint: 1500,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3
+                slidesToScroll: 4
             }
         },
         {
-            breakpoint: 5000,
+            breakpoint: 3800,
             settings: {
+                vertical: true,
                 slidesToShow: 4,
-                slidesToScroll: 4
+                slidesToScroll: 1
             }
         }
     ]
