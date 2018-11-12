@@ -561,26 +561,16 @@ function custom_override_checkout_fields( $fields ) {
     unset($fields['billing']['billing_address_2']);
     unset($fields['billing']['billing_city']);
     unset($fields['billing']['billing_postcode']);
-    //unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['order']['order_comments']);
 
     $fields['billing']['billing_first_name']['placeholder'] = __( "Ім’я", "custom-text" );
     $fields['billing']['billing_last_name']['placeholder'] = __( "Прізвище", "custom-text" );
-    $fields['billing']['billing_phone']['placeholder'] = __( "Email", "custom-text" );
-    $fields['billing']['billing_email']['placeholder'] = __( "Номер телефону", "custom-text" );
+    $fields['billing']['billing_phone']['placeholder'] = __( "Номер телефону", "custom-text" );
+    $fields['billing']['billing_email']['placeholder'] = __( "Email", "custom-text" );
 
     return $fields;
 }
-
-//add_filter('woocommerce_default_address_fields', 'override_address_fields');
-//function override_address_fields( $address_fields ) {
-//    $address_fields['billing_first_name']['placeholder'] = 'Test 1';
-//    $address_fields['billing_last_name']['placeholder'] = 'Test 2';
-//    $address_fields['billing_phone']['placeholder'] = 'Test 3';
-//    $address_fields['billing_email']['placeholder'] = 'Test 4';
-//    return $address_fields;
-//}
 
 //* Add gallery thumbs to woocommerce shop page
 add_action('woocommerce_shop_loop_item_title','wps_add_extra_product_thumbs', 5);
