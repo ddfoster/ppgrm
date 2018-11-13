@@ -22,18 +22,18 @@ get_header(); ?>
 </style>
 
     <div class="error-page">
-        <a href="/" class="error-page_logo">
+        <a href="<?php echo $my_home_url?>" class="error-page_logo">
             <img src="<?php bloginfo('template_url')?>/assets/img/papigram-logo.png" alt="">
         </a>
         <div class="error-page_wallet">
             <img src="<?php bloginfo('template_url')?>/assets/img/404wallet1.png" alt="">
-            <div><a href="/">На головну!</a></div>
+            <div><a href="<?php echo $my_home_url?>"><?php _e('Повернутись на головну', 'custom-text')?></a></div>
         </div>
         <div class="error-page_footer">
             <img src="<?php bloginfo('template_url')?>/assets/img/papigram-logo.png" alt="">
-            <h5>Загальні запити<span>info@papirgam.com</span></h5>
-            <h5>Відділ продажу<span>sales@papirgam.com</span></h5>
-            <h5>Співпраця<span>colab@papirgam.com</span></h5>
+            <h5><?php _e('Загальні запити', 'custom-text')?><span>info@papirgam.com</span></h5>
+            <h5><?php _e('Відділ продажу', 'custom-text')?><span>sales@papirgam.com</span></h5>
+            <h5><?php _e('Співпраця', 'custom-text')?><span>colab@papirgam.com</span></h5>
             <div class="copyright">
                 © Papirgam 2019
             </div>
