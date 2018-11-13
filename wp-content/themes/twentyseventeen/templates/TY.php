@@ -17,7 +17,8 @@ get_header(); ?>
 </style>
     <div class="thank-page">
         <img src="<?php bloginfo('template_url')?>/assets/img/papigram-logo.png" alt="">
-        <h1> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </h1>
+        <h1><?php the_content(); ?></h1>
+        <a class="home-button" href="<?php echo $my_home_url?>"><?php _e('Повернутись на головну', 'custom-text')?></a>
     </div>
 
 <?php get_footer(); ?>
