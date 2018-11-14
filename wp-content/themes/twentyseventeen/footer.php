@@ -25,6 +25,7 @@
         </div>
     </div>
     <div class="info">
+
         <div class="left">
             <?php dynamic_sidebar('footer-widget'); ?>
 <!--            <h5>Загальні запити<span>info@papirgam.com</span></h5>-->
@@ -32,7 +33,9 @@
 <!--            <h5>Співпраця<span>colab@papirgam.com</span></h5>-->
         </div>
         <div class="right">
-
+            <div class="language">
+                 <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
+            </div>
             <?php
             wp_nav_menu([
                 'menu'            => 'TopMenu',
@@ -51,8 +54,9 @@
             <a class="logo" href="<?php echo $my_home_url?>">
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>
+
             <div class="copyright">
-                <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
+
                 © Papirgam 2019
             </div>
         </div>

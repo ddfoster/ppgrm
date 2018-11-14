@@ -31,6 +31,7 @@ $id = apply_filters( 'wpml_object_id', 5, 'post' );
 
 <div class="mainPage">
     <div class="mainPage_product-description">
+        <div class="background"></div>
         <div class="mainPage_product-description-welcome"></div>
         <div class="mainPage_product-description-about">
             <div class="container">
