@@ -1,49 +1,49 @@
-    $(window).on('load', function(){
-        $("#preloader").fadeOut('fast');
-    });
+$(window).on('load', function(){
+    $("#preloader").fadeOut('fast');
 
-//scroll
-$('a[href*="#"]')
-// Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-            &&
-            location.hostname == this.hostname
-        ) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1500, function() {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    };
-                });
+    if ($(this).scrollTop() > 20){
+        $('.header').addClass("header-fixed");
+    }
+
+    $('a[href*="#"]')
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                &&
+                location.hostname == this.hostname
+            ) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1500, function() {
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        };
+                    });
+                }
             }
-        }
-    });
-//scroll end
+        });
 
-//header fixed
+    $('#billing_country').val('UA');
 
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 50){
+    $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
+
+    $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );
+    $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
+});
+
+$(window).on('scroll', function(){
+    if ($(this).scrollTop() > 20){
         $('.header').addClass("header-fixed");
     }
     else {
@@ -51,7 +51,7 @@ $(window).scroll(function () {
     }
 });
 
-//header-fixed-end
+
 $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -127,24 +127,10 @@ $('.single-item').slick({
         },
     ]
 });
+
 $('.product-item_carousel').slick({
     arrows: false,
     dots: true
-});
-
-$(document).ready(function() {
-    $('#billing_country').val('UA');
-});
-
-
-$(document).ready(function() {
-    $( "<div class='new'><span>NEW!</span></div>" ).appendTo( $( ".new .product-item_carousel" ) );
-    $( "<div class='limited'>Обмежена серія!</div>" ).appendTo( $( ".limited .product-item_carousel" ) );
-});
-
-
-$(document).ready(function(){
-    $('#billing_nova_poshta_warehouse_field, #billing_nova_poshta_region_field, #billing_nova_poshta_city_field').wrapAll('<div class="np_Wrapper">');
 });
 
 if ($(window).width() < 576) {
