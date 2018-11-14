@@ -23,7 +23,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+    <div id="preloader"></div>
     <header class="header">
         <?php dynamic_sidebar('header-widget'); ?>
         <div class="header-bottom">

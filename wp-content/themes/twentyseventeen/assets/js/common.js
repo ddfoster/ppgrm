@@ -1,3 +1,7 @@
+    $(window).on('load', function(){
+        $("#preloader").fadeOut('fast');
+    });
+
 //scroll
 $('a[href*="#"]')
 // Remove links that don't actually link to anything
