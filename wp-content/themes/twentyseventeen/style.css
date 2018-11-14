@@ -88,3 +88,7 @@
     background-color: #FFF;
     background-position: center;
 }
+
+.wpml-ls-legacy-dropdown-click .wpml-ls-flag+span{
+    font-weight: 400;
+}
