@@ -684,7 +684,7 @@ add_action( 'init', 'remove_product_editor' );
 
 
 //change text when product added in cart
-add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');
+/*add_filter('woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text');
 function woo_custom_cart_button_text() {
 
     foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
@@ -695,10 +695,10 @@ function woo_custom_cart_button_text() {
         }
     }
     return __('Add to cart', 'woocommerce');
-}
+}*/
 
 
-add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
+/*add_action( 'wp_footer', 'single_add_to_cart_event_text_replacement' );
 function single_add_to_cart_event_text_replacement() {
     global $product;
 
@@ -720,7 +720,7 @@ function single_add_to_cart_event_text_replacement() {
         })(jQuery);
     </script>
     <?php
-}
+}*/
 
 
 

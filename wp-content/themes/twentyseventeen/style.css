@@ -67,7 +67,10 @@
 /*}*/
 
 .single_add_to_cart_button.button.loading{
-    opacity: .8;
+    opacity: .5;
+    background: #c9e4d8;
+    color: #545b6c;
+    pointer-events: none;
     transition: opacity .3s ease;
 }
 

@@ -1450,10 +1450,10 @@ footer .info {
   display: block; }
 .productPage__info-button button span.added {
   display: none; }
-.productPage__info-button button.added {
-  pointer-events: none;
-  background-color: #c9e4d8;
-  color: #545b6c; }
+/*.productPage__info-button button.added {*/
+  /*pointer-events: none;*/
+  /*background-color: #c9e4d8;*/
+  /*color: #545b6c; }*/
 .productPage__info-button button.added span.addto {
   display: none; }
 .productPage__info-button button.added span.added {
