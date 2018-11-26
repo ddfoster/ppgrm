@@ -775,6 +775,7 @@ function register_custom_menus() {
     register_nav_menus(
         array(
             'header-menu' => __( 'TopMenu' ),
+            'footer_menu' => __('BottomMenu')
         )
     );
 }

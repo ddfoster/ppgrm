@@ -2286,7 +2286,7 @@ footer .info {
   right: 20px;
   cursor: pointer; }
 .popup-wrapper .popup-header h2 {
-  max-width: 208px;
+  max-width: 230px;
   font-size: 25px;
   font-weight: bold;
   line-height: 1;
@@ -2867,7 +2867,7 @@ footer .info {
   margin: 0 0 40px 0;
 }
 .language {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 .language .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a,
 .language .wpml-ls-statics-shortcode_actions,

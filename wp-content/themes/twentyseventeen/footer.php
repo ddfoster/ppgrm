@@ -46,26 +46,21 @@
 
         <div class="left">
             <?php dynamic_sidebar('footer-widget'); ?>
-<!--            <h5>Загальні запити<span>info@papirgam.com</span></h5>-->
-<!--            <h5>Відділ продажу<span>sales@papirgam.com</span></h5>-->
-<!--            <h5>Співпраця<span>colab@papirgam.com</span></h5>-->
         </div>
         <div class="right">
-            <div class="language">
-                 <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
-            </div>
+
             <?php
-            wp_nav_menu([
-                'menu'            => 'TopMenu',
-                'theme_location'  => 'header-menu',
-                'container'       => 'div',
-                'container_class' => 'links',
-//                'menu_id'         => false,
-//                'menu_class'      => 'navbar-nav',
-//                'fallback_cb'     => 'bs4navwalker::fallback',
-//                'walker'          => new bs4navwalker()
-            ]);
+                wp_nav_menu([
+                    'menu'            => 'BottomMenu',
+                    'theme_location'  => 'footer_menu',
+                    'container'       => 'div',
+                    'container_class' => 'links'
+                ]);
             ?>
+
+            <div class="language">
+                <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
+            </div>
 
 <!--            <a href="#">Головна</a>-->
 <!--            <a href="#">Гаманці</a>-->
