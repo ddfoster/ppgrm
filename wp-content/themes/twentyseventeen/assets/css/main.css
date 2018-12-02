@@ -3118,18 +3118,21 @@ footer .info {
 .info .menu-bottommenu-container{
 
 
- }
+}
 .info .menu-bottommenu-container ul {
 
 }
 .info .textwidget ,
 .info .menu-bottommenu-container ul {
-
+  display: inline-flex;
 }
-.info h5,
-.info li {
-  display: inline-block;
+footer .info h5,
+footer .info li {
+  margin-right: 60px;
 }
 footer .info {
-  justify-content: inherit;
+}
+
+.info-links{
+  display: flex;
 }

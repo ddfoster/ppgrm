@@ -44,14 +44,16 @@
     </div>
     <div class="info">
 
-            <?php dynamic_sidebar('footer-widget'); ?>
+            <div class="info-links">
+                <?php dynamic_sidebar('footer-widget'); ?>
 
-            <?php
+                <?php
                 wp_nav_menu([
                     'menu'            => 'BottomMenu',
                     'theme_location'  => 'footer_menu'
                 ]);
-            ?>
+                ?>
+            </div>
 
             <div class="language">
                 <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
