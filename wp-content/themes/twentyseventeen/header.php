@@ -27,7 +27,7 @@
     <header class="header">
         <?php dynamic_sidebar('header-widget'); ?>
         <div class="header-bottom">
-            <a href="<?php echo $my_home_url?>"><img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt=""></a>
+            <a href="<?php echo $my_home_url?>"><img src="<?php bloginfo("template_url")?>/assets/img/logo.svg" alt=""></a>
             <div class="header-bottom_content">
 
                 <?php

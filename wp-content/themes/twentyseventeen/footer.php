@@ -63,7 +63,7 @@
                  </div>
 
                 <a class="logo" href="<?php echo $my_home_url?>">
-                    <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
+                    <img src="<?php bloginfo("template_url")?>/assets/img/logo.svg" alt="">
                 </a>
 
                 <div class="copyright"> © Papirgam 2019 </div>

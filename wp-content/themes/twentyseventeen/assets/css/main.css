@@ -964,18 +964,18 @@ footer .info {
   margin-bottom: 16px;
 }
 .mainPage .mainPage_carousel-description .single-item .single-item_block h3 {
-  font-size: 17px;
+  font-size: 22px;
   color: #545b6c;
   font-weight: 500;
   margin-bottom: 5px;
   line-height: 1.32;
 }
 .mainPage .mainPage_carousel-description .single-item .single-item_block p {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 300;
   color: #868283;
   margin: 0 0 0 0;
-  line-height: 23px; }
+  line-height: 21px; }
 .mainPage .mainPage_carousel-description .single-item .slick-dots {
   bottom: -22px;
 }
@@ -1041,7 +1041,7 @@ footer .info {
     line-height: 1.4;
   }
   .mainPage .mainPage_carousel-description .single-item .single-item_block h3 {
-    font-size: 15px;
+    font-size: 23px;
   }
 }
 @media (min-width: 1920px) {
@@ -1095,7 +1095,7 @@ footer .info {
   margin: 0; }
 .mainPage .mainPage_small-description .info p {
   color: #656263;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 300;
   margin: 10px auto 31px auto;
   max-width: 500px;
@@ -1129,9 +1129,9 @@ footer .info {
   color: #026f3e;
   text-transform: capitalize;
   font-weight: 500;
-  margin: 0 0 18px 0; }
+  margin: 0 0 30px 0; }
 .mainPage .mainPage_small-description .info .block-item.big {
-  margin-bottom: 8px; }
+  margin-bottom: 20px; }
 .mainPage .mainPage_small-description .info .block-item.big span {
   font-size: 20px;
   color: #868283;
@@ -1259,7 +1259,7 @@ footer .info {
   .mainPage .mainPage_small-description .info p {
     line-height: 1.3;
     color: #868283;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
    max-width: 515px;
   }
@@ -1278,7 +1278,7 @@ footer .info {
     max-width: none;
   }
   .mainPage .mainPage_small-description .info .block-item span {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
   .mainPage .mainPage_small-description .info .block-item.big span {
     margin-bottom: 0;
@@ -1320,7 +1320,7 @@ footer .info {
   }
   .mainPage .mainPage_small-description-top .info p {
     text-align: left;
-    margin: 0 0 33px 0;
+    margin: 0 0 40px 0;
   }
   .mainPage .mainPage_small-description-top .info .block-item {
     width: 25%;
