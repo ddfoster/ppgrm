@@ -44,29 +44,34 @@
     </div>
     <div class="info">
 
-            <div class="info-links">
+             <div class="left">
                 <?php dynamic_sidebar('footer-widget'); ?>
+              </div>
 
+            <div class="right">
                 <?php
                 wp_nav_menu([
                     'menu'            => 'BottomMenu',
-                    'theme_location'  => 'footer_menu'
+                    'theme_location'  => 'footer_menu',
+                    'container'       => 'div',
+                    'container_class' => 'links'
                 ]);
                 ?>
+
+                <div class="language">
+                    <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
+                 </div>
+
+                <a class="logo" href="<?php echo $my_home_url?>">
+                    <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
+                </a>
+
+                <div class="copyright"> © Papirgam 2019 </div>
+
             </div>
-
-            <div class="language">
-                <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
-            </div>
-
-
-            <a class="logo" href="<?php echo $my_home_url?>">
-                <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
-            </a>
-
-            <div class="copyright"> © Papirgam 2019 </div>
 
     </div>
+
 </footer>
 
 <?php wp_footer(); ?>
