@@ -44,17 +44,12 @@
     </div>
     <div class="info">
 
-        <div class="left">
             <?php dynamic_sidebar('footer-widget'); ?>
-        </div>
-        <div class="right">
 
             <?php
                 wp_nav_menu([
                     'menu'            => 'BottomMenu',
-                    'theme_location'  => 'footer_menu',
-                    'container'       => 'div',
-                    'container_class' => 'links'
+                    'theme_location'  => 'footer_menu'
                 ]);
             ?>
 
@@ -62,17 +57,13 @@
                 <?php echo do_shortcode('[wpml_language_selector_widget]') ?>
             </div>
 
-<!--            <a href="#">Головна</a>-->
-<!--            <a href="#">Гаманці</a>-->
+
             <a class="logo" href="<?php echo $my_home_url?>">
                 <img src="<?php bloginfo("template_url")?>/assets/img/papigram-logo.png" alt="">
             </a>
 
-            <div class="copyright">
+            <div class="copyright"> © Papirgam 2019 </div>
 
-                © Papirgam 2019
-            </div>
-        </div>
     </div>
 </footer>
 
